@@ -1,48 +1,98 @@
-Domino Pipeline (High-Level Design)
-1. Repository Ingestion
+Domino v1.0 – Production-Oriented Pipeline (Hybrid Architecture)
+Stage 1 — Repository Ingestion
 
-Goal: Obtain a local copy of any GitHub repository so Domino can analyze it. The repository is downloaded, organized, and prepared for further processing.
+Goal: Accept a GitHub repository URL and prepare it for analysis.
 
-Tech: Git, GitPython, Python File System
+What happens?
 
-Our Approach: Clone the repository locally, validate it, and maintain a workspace where all repositories are stored for analysis.
+User submits a GitHub URL.
+Domino validates the repository.
+The repository is cloned temporarily into a working directory on the server.
 
-2. Repository Understanding
+Tech: Git, GitPython
 
-Goal: Learn how the repository is structured by identifying files, classes, functions, imports, API routes, database models, and other important code elements.
+Output: A temporary local copy of the repository.
+
+Stage 2 — Repository Understanding
+
+Goal: Understand what exists inside the repository.
+
+What happens?
+
+Scan every source file.
+Read the code without executing it.
+Extract information such as files, functions, classes, imports, API routes, and other code entities.
 
 Tech: Python AST, Static Code Analysis
 
-Our Approach: Read every source file, extract useful metadata, and build a structured representation of the repository without executing any code.
+Output: Structured metadata describing the repository.
 
-3. Dependency & Knowledge Graph Construction
+Stage 3 — Dependency Graph Construction
 
-Goal: Connect all the extracted information to create a repository-wide map of how different files, functions, classes, and services depend on one another.
+Goal: Build a complete map of relationships inside the repository.
+
+What happens?
+
+Convert the extracted metadata into a graph.
+Connect files, functions, classes, APIs, and modules based on their relationships.
+This graph becomes Domino's "knowledge" of the repository.
 
 Tech: Graph Theory, NetworkX
 
-Our Approach: Represent the repository as a directed graph where nodes are code entities and edges represent relationships such as imports, function calls, inheritance, and dependencies.
+Output: Repository Dependency Graph.
 
-4. Change Impact Analysis
+Stage 4 — Metadata Persistence
 
-Goal: Given a changed file or function, determine which other parts of the repository are likely to be affected by following dependency paths through the graph.
+Goal: Store only the knowledge, not the source code.
 
-Tech: Graph Traversal Algorithms (DFS/BFS), Static Analysis
+What happens?
 
-Our Approach: Start from the modified code entity, traverse the dependency graph, and identify downstream files, APIs, services, and other impacted components.
+Save repository metadata and the dependency graph.
+Delete the temporary cloned repository.
+Future analysis uses the stored graph instead of the original source code.
 
-5. Engineering Intelligence
+Tech: SQLAlchemy + SQLite (MVP), later PostgreSQL
 
-Goal: Convert raw dependency analysis into useful engineering insights, such as risk level, affected modules, recommended tests, dependency hotspots, and critical paths.
+Output: Persistent repository knowledge with minimal storage usage.
 
-Tech: Software Metrics, Graph Analytics, Heuristic Scoring
+Stage 5 — Change Impact Analysis
 
-Our Approach: Analyze the graph using predefined metrics and heuristics to generate actionable recommendations rather than just listing affected files.
+Goal: Predict the consequences of a code change.
 
-6. AI-Assisted Engineering
+What happens?
 
-Goal: Help developers understand and act on the analysis by generating explanations and, in future versions, suggesting code modifications across affected files.
+User specifies a changed file, function, or module.
+Domino traverses the dependency graph.
+It identifies downstream files, APIs, services, and other impacted components.
 
-Tech: Gemini, LangChain (and later LangGraph if needed)
+Tech: Graph Traversal (DFS/BFS), Static Analysis
 
-Our Approach: Use the deterministic analysis from previous stages as context for the LLM. The AI explains the impact in natural language and eventually proposes repository-aware code changes, while the graph engine remains the source of truth.
+Output: List of affected components.
+
+Stage 6 — Engineering Intelligence
+
+Goal: Turn raw analysis into useful engineering decisions.
+
+What happens?
+
+Calculate a risk score.
+Identify dependency hotspots.
+Recommend relevant test suites.
+Generate a concise engineering summary.
+
+Tech: Graph Analytics, Heuristic Scoring
+
+Output: Actionable impact report.
+
+Stage 7 — AI-Assisted Reasoning
+
+Goal: Explain the analysis in natural language and assist developers.
+
+What happens?
+
+Feed the impact report (not the whole repository) to the LLM.
+Generate explanations, validation guidance, and future code suggestions.
+
+Tech: Gemini + LangChain
+
+Output: Human-readable engineering recommendations.
