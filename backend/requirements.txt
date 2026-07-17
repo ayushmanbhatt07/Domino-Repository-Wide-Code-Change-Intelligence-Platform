@@ -6,6 +6,9 @@ python-dotenv
 
 gitpython
 
+tree-sitter
+tree-sitter-language-pack
+
 networkx
 
 sqlalchemy

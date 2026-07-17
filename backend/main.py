@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from ingestion import RepositoryIngestionService
+from analysis import RepositoryAnalyzer
 
 
 app = FastAPI(
@@ -12,6 +13,7 @@ app = FastAPI(
 
 
 service = RepositoryIngestionService()
+analyzer = RepositoryAnalyzer()
 
 
 # -----------------------------
@@ -19,6 +21,10 @@ service = RepositoryIngestionService()
 # -----------------------------
 class RepositoryRequest(BaseModel):
     repo_url: str
+
+
+class AnalyzeRequest(BaseModel):
+    path: str
 
 
 # -----------------------------
@@ -68,4 +74,34 @@ def ingest_repository(request: RepositoryRequest):
         raise HTTPException(
             status_code=500,
             detail=str(e)
+        )
+
+
+# -----------------------------
+# Repository Analysis
+# -----------------------------
+@app.post("/analyze")
+def analyze_repository(request: AnalyzeRequest):
+
+    try:
+
+        result = analyzer.analyze(request.path)
+
+        return {
+            "status": "success",
+            **result
+        }
+
+    except ValueError as e:
+
+        raise HTTPException(
+            status_code=400,
+            detail=str(e)
+        )
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=500,
+            detail="Analysis failed."
         )
