@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 from ingestion import RepositoryIngestionService
 from analysis import RepositoryAnalyzer
-
+from dependency_graph import DependencyGraphBuilder
 
 app = FastAPI(
     title="Domino",
@@ -14,7 +14,7 @@ app = FastAPI(
 
 service = RepositoryIngestionService()
 analyzer = RepositoryAnalyzer()
-
+graph_builder = DependencyGraphBuilder()
 
 # -----------------------------
 # Request Model
@@ -85,10 +85,52 @@ def analyze_repository(request: AnalyzeRequest):
 
     try:
 
+        # -----------------------------
+        # Stage 2 - Repository Analysis
+        # -----------------------------
         result = analyzer.analyze(request.path)
 
+        # -----------------------------
+        # Stage 3 - Dependency Graph
+        # Create a fresh graph builder for every request
+        # -----------------------------
+        graph_builder = DependencyGraphBuilder()
+
+        graph = graph_builder.build(result)
+
+        # -----------------------------
+        # Print Graph Summary
+        # -----------------------------
+        print("\n========== GRAPH SUMMARY ==========")
+        print(graph_builder.summary())
+
+        # -----------------------------
+        # Print All Nodes
+        # -----------------------------
+        print("\n========== NODES ==========")
+
+        for node, data in graph.nodes(data=True):
+            print(node, data)
+
+        # -----------------------------
+        # Print All Edges
+        # -----------------------------
+        print("\n========== EDGES ==========")
+
+        for source, target, data in graph.edges(data=True):
+            print(f"{source} --{data['relation']}--> {target}")
+
+        # -----------------------------
+        # Export Graph
+        # -----------------------------
+        graph_builder.export_graphml("repository.graphml")
+
+        # -----------------------------
+        # API Response
+        # -----------------------------
         return {
             "status": "success",
+            "graph_summary": graph_builder.summary(),
             **result
         }
 
@@ -99,9 +141,9 @@ def analyze_repository(request: AnalyzeRequest):
             detail=str(e)
         )
 
-    except Exception:
+    except Exception as e:
 
         raise HTTPException(
             status_code=500,
-            detail="Analysis failed."
+            detail=str(e)
         )

@@ -1,0 +1,764 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d5" for="node" attr.name="path" attr.type="string" />
+  <key id="d4" for="node" attr.name="method" attr.type="string" />
+  <key id="d3" for="node" attr.name="end_line" attr.type="long" />
+  <key id="d2" for="node" attr.name="start_line" attr.type="long" />
+  <key id="d1" for="node" attr.name="name" attr.type="string" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="file:create_table.py">
+      <data key="d0">file</data>
+      <data key="d1">create_table.py</data>
+    </node>
+    <node id="file:CRUD.py">
+      <data key="d0">file</data>
+      <data key="d1">CRUD.py</data>
+    </node>
+    <node id="file:database.py">
+      <data key="d0">file</data>
+      <data key="d1">database.py</data>
+    </node>
+    <node id="file:main.py">
+      <data key="d0">file</data>
+      <data key="d1">main.py</data>
+    </node>
+    <node id="file:model.py">
+      <data key="d0">file</data>
+      <data key="d1">model.py</data>
+    </node>
+    <node id="file:project.py">
+      <data key="d0">file</data>
+      <data key="d1">project.py</data>
+    </node>
+    <node id="file:auth\auth_database.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\auth_database.py</data>
+    </node>
+    <node id="file:auth\auth_table.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\auth_table.py</data>
+    </node>
+    <node id="file:auth\key.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\key.py</data>
+    </node>
+    <node id="file:auth\main.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\main.py</data>
+    </node>
+    <node id="file:auth\models.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\models.py</data>
+    </node>
+    <node id="file:auth\schemas.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\schemas.py</data>
+    </node>
+    <node id="file:auth\utils.py">
+      <data key="d0">file</data>
+      <data key="d1">auth\utils.py</data>
+    </node>
+    <node id="function:CRUD.py:get_book">
+      <data key="d0">function</data>
+      <data key="d1">get_book</data>
+      <data key="d2">40</data>
+      <data key="d3">46</data>
+    </node>
+    <node id="function:CRUD.py:create_book">
+      <data key="d0">function</data>
+      <data key="d1">create_book</data>
+      <data key="d2">57</data>
+      <data key="d3">59</data>
+    </node>
+    <node id="function:CRUD.py:update_book">
+      <data key="d0">function</data>
+      <data key="d1">update_book</data>
+      <data key="d2">69</data>
+      <data key="d3">76</data>
+    </node>
+    <node id="function:CRUD.py:delete_book">
+      <data key="d0">function</data>
+      <data key="d1">delete_book</data>
+      <data key="d2">80</data>
+      <data key="d3">85</data>
+    </node>
+    <node id="function:database.py:get_db">
+      <data key="d0">function</data>
+      <data key="d1">get_db</data>
+      <data key="d2">22</data>
+      <data key="d3">27</data>
+    </node>
+    <node id="function:main.py:read_root">
+      <data key="d0">function</data>
+      <data key="d1">read_root</data>
+      <data key="d2">7</data>
+      <data key="d3">8</data>
+    </node>
+    <node id="function:main.py:greet">
+      <data key="d0">function</data>
+      <data key="d1">greet</data>
+      <data key="d2">11</data>
+      <data key="d3">12</data>
+    </node>
+    <node id="function:main.py:greet_name">
+      <data key="d0">function</data>
+      <data key="d1">greet_name</data>
+      <data key="d2">15</data>
+      <data key="d3">16</data>
+    </node>
+    <node id="function:main.py:greet_name_with_age">
+      <data key="d0">function</data>
+      <data key="d1">greet_name_with_age</data>
+      <data key="d2">24</data>
+      <data key="d3">25</data>
+    </node>
+    <node id="function:main.py:create_student">
+      <data key="d0">function</data>
+      <data key="d1">create_student</data>
+      <data key="d2">33</data>
+      <data key="d3">38</data>
+    </node>
+    <node id="function:project.py:create_book">
+      <data key="d0">function</data>
+      <data key="d1">create_book</data>
+      <data key="d2">16</data>
+      <data key="d3">21</data>
+    </node>
+    <node id="function:auth\auth_database.py:get_db">
+      <data key="d0">function</data>
+      <data key="d1">get_db</data>
+      <data key="d2">22</data>
+      <data key="d3">27</data>
+    </node>
+    <node id="function:auth\main.py:create_access_token">
+      <data key="d0">function</data>
+      <data key="d1">create_access_token</data>
+      <data key="d2">16</data>
+      <data key="d3">21</data>
+    </node>
+    <node id="function:auth\main.py:register_user">
+      <data key="d0">function</data>
+      <data key="d1">register_user</data>
+      <data key="d2">26</data>
+      <data key="d3">49</data>
+    </node>
+    <node id="function:auth\main.py:login">
+      <data key="d0">function</data>
+      <data key="d1">login</data>
+      <data key="d2">53</data>
+      <data key="d3">63</data>
+    </node>
+    <node id="function:auth\main.py:get_current_user">
+      <data key="d0">function</data>
+      <data key="d1">get_current_user</data>
+      <data key="d2">67</data>
+      <data key="d3">80</data>
+    </node>
+    <node id="function:auth\main.py:protected_route">
+      <data key="d0">function</data>
+      <data key="d1">protected_route</data>
+      <data key="d2">84</data>
+      <data key="d3">85</data>
+    </node>
+    <node id="function:auth\main.py:require_role">
+      <data key="d0">function</data>
+      <data key="d1">require_role</data>
+      <data key="d2">86</data>
+      <data key="d3">92</data>
+    </node>
+    <node id="function:auth\main.py:role_checker">
+      <data key="d0">function</data>
+      <data key="d1">role_checker</data>
+      <data key="d2">87</data>
+      <data key="d3">91</data>
+    </node>
+    <node id="function:auth\main.py:profile">
+      <data key="d0">function</data>
+      <data key="d1">profile</data>
+      <data key="d2">95</data>
+      <data key="d3">96</data>
+    </node>
+    <node id="function:auth\main.py:user_dashboard">
+      <data key="d0">function</data>
+      <data key="d1">user_dashboard</data>
+      <data key="d2">103</data>
+      <data key="d3">104</data>
+    </node>
+    <node id="function:auth\utils.py:hash_password">
+      <data key="d0">function</data>
+      <data key="d1">hash_password</data>
+      <data key="d2">6</data>
+      <data key="d3">7</data>
+    </node>
+    <node id="function:auth\utils.py:verify_password">
+      <data key="d0">function</data>
+      <data key="d1">verify_password</data>
+      <data key="d2">10</data>
+      <data key="d3">11</data>
+    </node>
+    <node id="class:CRUD.py:My_Books">
+      <data key="d0">class</data>
+      <data key="d1">My_Books</data>
+    </node>
+    <node id="class:CRUD.py:My_Books_update">
+      <data key="d0">class</data>
+      <data key="d1">My_Books_update</data>
+    </node>
+    <node id="class:main.py:Student">
+      <data key="d0">class</data>
+      <data key="d1">Student</data>
+    </node>
+    <node id="class:model.py:Book">
+      <data key="d0">class</data>
+      <data key="d1">Book</data>
+    </node>
+    <node id="class:project.py:BookStore">
+      <data key="d0">class</data>
+      <data key="d1">BookStore</data>
+    </node>
+    <node id="class:auth\models.py:User">
+      <data key="d0">class</data>
+      <data key="d1">User</data>
+    </node>
+    <node id="class:auth\schemas.py:UserCreate">
+      <data key="d0">class</data>
+      <data key="d1">UserCreate</data>
+    </node>
+    <node id="class:auth\schemas.py:UserLogin">
+      <data key="d0">class</data>
+      <data key="d1">UserLogin</data>
+    </node>
+    <node id="route:GET:/books">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/books</data>
+    </node>
+    <node id="route:GET:/book/{book_id}">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/book/{book_id}</data>
+    </node>
+    <node id="route:POST:/book">
+      <data key="d0">route</data>
+      <data key="d4">POST</data>
+      <data key="d5">/book</data>
+    </node>
+    <node id="route:PUT:/book/{book_id}">
+      <data key="d0">route</data>
+      <data key="d4">PUT</data>
+      <data key="d5">/book/{book_id}</data>
+    </node>
+    <node id="route:DELETE:/book/{book_id}">
+      <data key="d0">route</data>
+      <data key="d4">DELETE</data>
+      <data key="d5">/book/{book_id}</data>
+    </node>
+    <node id="route:GET:/">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/</data>
+    </node>
+    <node id="route:GET:/greet">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/greet</data>
+    </node>
+    <node id="route:GET:/greet/{name}">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/greet/{name}</data>
+    </node>
+    <node id="route:GET:/greet2/{name}">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/greet2/{name}</data>
+    </node>
+    <node id="route:GET:/greet3/">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/greet3/</data>
+    </node>
+    <node id="route:POST:/create_student">
+      <data key="d0">route</data>
+      <data key="d4">POST</data>
+      <data key="d5">/create_student</data>
+    </node>
+    <node id="route:POST:/books">
+      <data key="d0">route</data>
+      <data key="d4">POST</data>
+      <data key="d5">/books</data>
+    </node>
+    <node id="route:POST:/signup">
+      <data key="d0">route</data>
+      <data key="d4">POST</data>
+      <data key="d5">/signup</data>
+    </node>
+    <node id="route:POST:/login">
+      <data key="d0">route</data>
+      <data key="d4">POST</data>
+      <data key="d5">/login</data>
+    </node>
+    <node id="route:GET:sub">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">sub</data>
+    </node>
+    <node id="route:GET:role">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">role</data>
+    </node>
+    <node id="route:GET:/protected">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/protected</data>
+    </node>
+    <node id="route:GET:/profile">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/profile</data>
+    </node>
+    <node id="route:GET:/user/dashboard">
+      <data key="d0">route</data>
+      <data key="d4">GET</data>
+      <data key="d5">/user/dashboard</data>
+    </node>
+    <node id="external:HTTPException">
+      <data key="d0">external_call</data>
+      <data key="d1">HTTPException</data>
+    </node>
+    <node id="external:book.model_dump">
+      <data key="d0">external_call</data>
+      <data key="d1">book.model_dump</data>
+    </node>
+    <node id="external:books.append">
+      <data key="d0">external_call</data>
+      <data key="d1">books.append</data>
+    </node>
+    <node id="external:books.remove">
+      <data key="d0">external_call</data>
+      <data key="d1">books.remove</data>
+    </node>
+    <node id="external:SessionLocal">
+      <data key="d0">external_call</data>
+      <data key="d1">SessionLocal</data>
+    </node>
+    <node id="external:db.close">
+      <data key="d0">external_call</data>
+      <data key="d1">db.close</data>
+    </node>
+    <node id="external:Depends">
+      <data key="d0">external_call</data>
+      <data key="d1">Depends</data>
+    </node>
+    <node id="external:model.Book">
+      <data key="d0">external_call</data>
+      <data key="d1">model.Book</data>
+    </node>
+    <node id="external:db.add">
+      <data key="d0">external_call</data>
+      <data key="d1">db.add</data>
+    </node>
+    <node id="external:db.commit">
+      <data key="d0">external_call</data>
+      <data key="d1">db.commit</data>
+    </node>
+    <node id="external:db.refresh">
+      <data key="d0">external_call</data>
+      <data key="d1">db.refresh</data>
+    </node>
+    <node id="external:data.copy">
+      <data key="d0">external_call</data>
+      <data key="d1">data.copy</data>
+    </node>
+    <node id="external:datetime.utcnow">
+      <data key="d0">external_call</data>
+      <data key="d1">datetime.utcnow</data>
+    </node>
+    <node id="external:timedelta">
+      <data key="d0">external_call</data>
+      <data key="d1">timedelta</data>
+    </node>
+    <node id="external:to_encode.update">
+      <data key="d0">external_call</data>
+      <data key="d1">to_encode.update</data>
+    </node>
+    <node id="external:jwt.encode">
+      <data key="d0">external_call</data>
+      <data key="d1">jwt.encode</data>
+    </node>
+    <node id="external:db.query(models.User).filter(models.User.username==user.username).first">
+      <data key="d0">external_call</data>
+      <data key="d1">db.query(models.User).filter(models.User.username==user.username).first</data>
+    </node>
+    <node id="external:db.query(models.User).filter">
+      <data key="d0">external_call</data>
+      <data key="d1">db.query(models.User).filter</data>
+    </node>
+    <node id="external:db.query">
+      <data key="d0">external_call</data>
+      <data key="d1">db.query</data>
+    </node>
+    <node id="external:utils.hash_password">
+      <data key="d0">external_call</data>
+      <data key="d1">utils.hash_password</data>
+    </node>
+    <node id="external:models.User">
+      <data key="d0">external_call</data>
+      <data key="d1">models.User</data>
+    </node>
+    <node id="external:db.query(models.User).filter(models.User.username==form_data.username).first">
+      <data key="d0">external_call</data>
+      <data key="d1">db.query(models.User).filter(models.User.username==form_data.username).first</data>
+    </node>
+    <node id="external:utils.verify_password">
+      <data key="d0">external_call</data>
+      <data key="d1">utils.verify_password</data>
+    </node>
+    <node id="external:create_access_token">
+      <data key="d0">external_call</data>
+      <data key="d1">create_access_token</data>
+    </node>
+    <node id="external:jwt.decode">
+      <data key="d0">external_call</data>
+      <data key="d1">jwt.decode</data>
+    </node>
+    <node id="external:payload.get">
+      <data key="d0">external_call</data>
+      <data key="d1">payload.get</data>
+    </node>
+    <node id="external:current_user.get">
+      <data key="d0">external_call</data>
+      <data key="d1">current_user.get</data>
+    </node>
+    <node id="external:require_role">
+      <data key="d0">external_call</data>
+      <data key="d1">require_role</data>
+    </node>
+    <node id="external:pwd_context.hash">
+      <data key="d0">external_call</data>
+      <data key="d1">pwd_context.hash</data>
+    </node>
+    <node id="external:pwd_context.verify">
+      <data key="d0">external_call</data>
+      <data key="d1">pwd_context.verify</data>
+    </node>
+    <edge source="file:CRUD.py" target="function:CRUD.py:get_book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:CRUD.py" target="function:CRUD.py:create_book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:CRUD.py" target="function:CRUD.py:update_book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:CRUD.py" target="function:CRUD.py:delete_book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:CRUD.py" target="class:CRUD.py:My_Books">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:CRUD.py" target="class:CRUD.py:My_Books_update">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:database.py" target="function:database.py:get_db">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="function:main.py:read_root">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="function:main.py:greet">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="function:main.py:greet_name">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="function:main.py:greet_name_with_age">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="function:main.py:create_student">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:main.py" target="class:main.py:Student">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:model.py" target="class:model.py:Book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:project.py" target="function:project.py:create_book">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:project.py" target="class:project.py:BookStore">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\auth_database.py" target="function:auth\auth_database.py:get_db">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:create_access_token">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:register_user">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:login">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:get_current_user">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:protected_route">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:require_role">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:role_checker">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:profile">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\main.py" target="function:auth\main.py:user_dashboard">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\models.py" target="class:auth\models.py:User">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\schemas.py" target="class:auth\schemas.py:UserCreate">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\schemas.py" target="class:auth\schemas.py:UserLogin">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\utils.py" target="function:auth\utils.py:hash_password">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="file:auth\utils.py" target="function:auth\utils.py:verify_password">
+      <data key="d6">contains</data>
+    </edge>
+    <edge source="function:CRUD.py:get_book" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:CRUD.py:create_book" target="external:book.model_dump">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:CRUD.py:create_book" target="external:books.append">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:CRUD.py:update_book" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:CRUD.py:delete_book" target="external:books.remove">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:CRUD.py:delete_book" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:database.py:get_db" target="external:SessionLocal">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:database.py:get_db" target="external:db.close">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:project.py:create_book" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:project.py:create_book" target="external:model.Book">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:project.py:create_book" target="external:db.add">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:project.py:create_book" target="external:db.commit">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:project.py:create_book" target="external:db.refresh">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\auth_database.py:get_db" target="external:SessionLocal">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\auth_database.py:get_db" target="external:db.close">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:create_access_token" target="external:data.copy">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:create_access_token" target="external:datetime.utcnow">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:create_access_token" target="external:timedelta">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:create_access_token" target="external:to_encode.update">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:create_access_token" target="external:jwt.encode">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.query(models.User).filter(models.User.username==user.username).first">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.query(models.User).filter">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.query">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:utils.hash_password">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:models.User">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.add">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.commit">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:register_user" target="external:db.refresh">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:db.query(models.User).filter(models.User.username==form_data.username).first">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:db.query(models.User).filter">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:db.query">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:utils.verify_password">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:login" target="external:create_access_token">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:get_current_user" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:get_current_user" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:get_current_user" target="external:jwt.decode">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:get_current_user" target="external:payload.get">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:protected_route" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:require_role" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:require_role" target="external:current_user.get">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:require_role" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:role_checker" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:role_checker" target="external:current_user.get">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:role_checker" target="external:HTTPException">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:profile" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:profile" target="external:require_role">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\main.py:user_dashboard" target="external:Depends">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\utils.py:hash_password" target="external:pwd_context.hash">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="function:auth\utils.py:verify_password" target="external:pwd_context.verify">
+      <data key="d6">calls</data>
+    </edge>
+    <edge source="route:GET:/books" target="function:CRUD.py:get_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/book/{book_id}" target="function:CRUD.py:get_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:POST:/book" target="function:CRUD.py:create_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:PUT:/book/{book_id}" target="function:CRUD.py:update_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:DELETE:/book/{book_id}" target="function:CRUD.py:delete_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/" target="function:main.py:read_root">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/greet" target="function:main.py:greet">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/greet/{name}" target="function:main.py:greet_name">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/greet2/{name}" target="function:main.py:greet_name_with_age">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/greet3/" target="function:main.py:greet_name_with_age">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:POST:/create_student" target="function:main.py:create_student">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:POST:/books" target="function:project.py:create_book">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:POST:/signup" target="function:auth\main.py:create_access_token">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:POST:/login" target="function:auth\main.py:register_user">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:sub" target="function:auth\main.py:login">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:role" target="function:auth\main.py:get_current_user">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:role" target="function:auth\main.py:require_role">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/protected" target="function:auth\main.py:protected_route">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/profile" target="function:auth\main.py:role_checker">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/user/dashboard" target="function:auth\main.py:profile">
+      <data key="d6">handled_by</data>
+    </edge>
+    <edge source="route:GET:/user/dashboard" target="function:auth\main.py:user_dashboard">
+      <data key="d6">handled_by</data>
+    </edge>
+  </graph>
+</graphml>
