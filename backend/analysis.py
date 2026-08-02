@@ -157,6 +157,7 @@ class RepositoryAnalyzer:
                 routes.append({
                     "method": match.group(1).upper(),
                     "path": match.group(2),
+                    "line": call.start_point[0] + 1,
                 })
 
         return routes

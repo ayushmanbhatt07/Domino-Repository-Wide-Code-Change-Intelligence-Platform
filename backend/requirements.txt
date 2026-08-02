@@ -9,6 +9,8 @@ gitpython
 tree-sitter
 tree-sitter-language-pack
 
+neo4j
+
 networkx
 
 sqlalchemy

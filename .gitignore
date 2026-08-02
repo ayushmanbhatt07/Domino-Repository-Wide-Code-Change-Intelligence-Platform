@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Domino runtime artifacts (never commit these)
+# cloned repositories fetched at runtime
+backend/workspace/
+# generated .graphml exports
+backend/graphs/

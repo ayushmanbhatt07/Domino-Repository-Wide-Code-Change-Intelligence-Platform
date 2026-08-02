@@ -1,9 +1,12 @@
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from ingestion import RepositoryIngestionService
 from analysis import RepositoryAnalyzer
 from dependency_graph import DependencyGraphBuilder
+from graph_store import Neo4jGraphStore
 
 app = FastAPI(
     title="Domino",
@@ -14,7 +17,7 @@ app = FastAPI(
 
 service = RepositoryIngestionService()
 analyzer = RepositoryAnalyzer()
-graph_builder = DependencyGraphBuilder()
+store = Neo4jGraphStore()
 
 # -----------------------------
 # Request Model
@@ -121,9 +124,22 @@ def analyze_repository(request: AnalyzeRequest):
             print(f"{source} --{data['relation']}--> {target}")
 
         # -----------------------------
-        # Export Graph
+        # Export Graph (one file per repo, so nothing is overwritten)
         # -----------------------------
-        graph_builder.export_graphml("repository.graphml")
+        repo_name = Path(request.path).name
+        graph_file = f"graphs/{repo_name}.graphml"
+        graph_builder.export_graphml(graph_file)
+
+        # -----------------------------
+        # Stage 4 - Persist to Neo4j
+        # A DB error should not throw away the analysis result.
+        # -----------------------------
+        try:
+            store.save(repo_name, graph)
+            stored_in_neo4j = True
+        except Exception as e:
+            print("Neo4j store failed:", e)
+            stored_in_neo4j = False
 
         # -----------------------------
         # API Response
@@ -131,6 +147,8 @@ def analyze_repository(request: AnalyzeRequest):
         return {
             "status": "success",
             "graph_summary": graph_builder.summary(),
+            "graph_file": graph_file,
+            "stored_in_neo4j": stored_in_neo4j,
             **result
         }
 
