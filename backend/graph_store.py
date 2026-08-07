@@ -77,3 +77,106 @@ class Neo4jGraphStore:
                 """,
                 source=source, target=target, repo=repo
             )
+
+# -------------------------------------------------
+# Find a function
+# -------------------------------------------------
+def find_function(self, repo: str, function_name: str):
+
+    query = """
+    MATCH (f:Function {repo: $repo, name: $name})
+    RETURN f
+    """
+
+    with self.driver.session(database=config.NEO4J_DATABASE) as session:
+
+        result = session.run(
+            query,
+            repo=repo,
+            name=function_name
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        return dict(record["f"])
+
+# -------------------------------------------------
+# Find a file
+# -------------------------------------------------
+def find_file(self, repo: str, file_name: str):
+
+    query = """
+    MATCH (f:File {repo: $repo, name: $name})
+    RETURN f
+    """
+
+    with self.driver.session(database=config.NEO4J_DATABASE) as session:
+
+        result = session.run(
+            query,
+            repo=repo,
+            name=file_name
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        return dict(record["f"])
+
+# -------------------------------------------------
+# Find a class
+# -------------------------------------------------
+def find_class(self, repo: str, class_name: str):
+
+    query = """
+    MATCH (c:Class {repo: $repo, name: $name})
+    RETURN c
+    """
+
+    with self.driver.session(database=config.NEO4J_DATABASE) as session:
+
+        result = session.run(
+            query,
+            repo=repo,
+            name=class_name
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        return dict(record["c"])
+
+
+# -------------------------------------------------
+# Find a route
+# -------------------------------------------------
+def find_route(self, repo: str, route: str):
+
+    query = """
+    MATCH (r:Route {repo: $repo, path: $path})
+    RETURN r
+    """
+
+    with self.driver.session(database=config.NEO4J_DATABASE) as session:
+
+        result = session.run(
+            query,
+            repo=repo,
+            path=route
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        return dict(record["r"])
+
+
