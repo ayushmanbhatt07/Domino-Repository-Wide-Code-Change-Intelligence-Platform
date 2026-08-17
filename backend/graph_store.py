@@ -180,3 +180,62 @@ def find_route(self, repo: str, route: str):
         return dict(record["r"])
 
 
+def find_entity(
+    self,
+    repo: str,
+    entity_type: str,
+    name: str
+):
+    """
+    Find a single entity in a repository graph.
+
+    entity_type:
+        file
+        function
+        class
+        route
+    """
+
+    label = {
+        "file": "File",
+        "function": "Function",
+        "class": "Class",
+        "route": "Route",
+    }.get(entity_type)
+
+    if label is None:
+        raise ValueError(f"Unsupported entity type: {entity_type}")
+
+    property_name = "path" if entity_type == "route" else "name"
+
+    query = f"""
+    MATCH (n:{label} {{repo: $repo, {property_name}: $name}})
+    RETURN n
+    LIMIT 1
+    """
+
+    with self.driver.session(
+        database=config.NEO4J_DATABASE
+    ) as session:
+
+        result = session.run(
+            query,
+            repo=repo,
+            name=name
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        node = record["n"]
+
+        return {
+            "id": node.get("id"),
+            "type": node.get("type"),
+            "name": node.get("name"),
+            "path": node.get("path"),
+            "method": node.get("method"),
+            "repo": node.get("repo"),
+        }
