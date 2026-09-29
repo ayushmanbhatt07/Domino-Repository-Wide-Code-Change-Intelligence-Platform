@@ -52,5 +52,13 @@ def get_intelligence(request: ImpactAnalysisRequest):
             "report": res_json,
             "markdown": res_md
         }
+    except ValueError as e:
+        msg = str(e)
+        if "AMBIGUOUS" in msg:
+            raise HTTPException(status_code=409, detail=msg)
+        elif "NOT_FOUND" in msg or "not found" in msg.lower():
+            raise HTTPException(status_code=404, detail=msg)
+        else:
+            raise HTTPException(status_code=422, detail=msg)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

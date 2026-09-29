@@ -28,7 +28,6 @@ def test_functions_and_classes(analyzer, fixture_path):
     assert "UserService" in classes
 
 @pytest.mark.stage2
-@pytest.mark.xfail(strict=True, reason="dict.get() creates fake routes (B1)")
 def test_fake_routes(analyzer, fixture_path):
     res = analyzer.analyze(fixture_path)
     routes = [r for file in res["files"] for r in file.get("routes", [])]
@@ -38,11 +37,11 @@ def test_fake_routes(analyzer, fixture_path):
     assert fake_route is None
 
 @pytest.mark.stage2
-@pytest.mark.xfail(strict=True, reason="Callee names store raw source text (B2)")
 def test_callee_names(analyzer, fixture_path):
     res = analyzer.analyze(fixture_path)
     for file in res["files"]:
         for f in file.get("functions", []):
             for c in f.get("calls", []):
-                assert "\\n" not in c
-                assert "source[" not in c
+                name = c["name"]
+                assert "\\n" not in name
+                assert "source[" not in name
