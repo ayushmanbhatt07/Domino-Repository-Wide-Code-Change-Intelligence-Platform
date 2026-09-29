@@ -12,6 +12,7 @@ from dependency_graph import DependencyGraphBuilder
 from graph_store import Neo4jGraphStore
 
 from impact_analysis.router import router as impact_router
+from intelligence.router import router as intelligence_router
 
 store = Neo4jGraphStore()
 service = RepositoryIngestionService()
@@ -36,6 +37,7 @@ app = FastAPI(
 )
 
 app.include_router(impact_router)
+app.include_router(intelligence_router)
 
 class RepositoryRequest(BaseModel):
     repo_url: str
