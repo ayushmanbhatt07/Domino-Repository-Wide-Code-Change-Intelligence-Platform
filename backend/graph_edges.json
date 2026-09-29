@@ -1,0 +1,1777 @@
+[
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:discover_files",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_text",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_name",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_find",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:parse_file",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_read_functions",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_read_classes",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_read_imports",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_read_routes",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:_callee",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "function:analysis.py:analyze",
+    "relation": "contains"
+  },
+  {
+    "source": "file:analysis.py",
+    "target": "class:analysis.py:RepositoryAnalyzer",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:__init__",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_add_files",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_add_functions",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_add_classes",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_index_definitions",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_add_routes",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_function_after",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_add_calls",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_resolve",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:build",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:summary",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:_external_call_count",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "function:dependency_graph.py:export_graphml",
+    "relation": "contains"
+  },
+  {
+    "source": "file:dependency_graph.py",
+    "target": "class:dependency_graph.py:DependencyGraphBuilder",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:__init__",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:close",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:save",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:_replace_repo",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_function",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_file",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_class",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_route",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_entity",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "contains"
+  },
+  {
+    "source": "file:graph_store.py",
+    "target": "class:graph_store.py:Neo4jGraphStore",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "function:ingestion.py:__init__",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "function:ingestion.py:validate_url",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "function:ingestion.py:repository_exists",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "function:ingestion.py:clone_repository",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "function:ingestion.py:ingest",
+    "relation": "contains"
+  },
+  {
+    "source": "file:ingestion.py",
+    "target": "class:ingestion.py:RepositoryIngestionService",
+    "relation": "contains"
+  },
+  {
+    "source": "file:main.py",
+    "target": "function:main.py:home",
+    "relation": "contains"
+  },
+  {
+    "source": "file:main.py",
+    "target": "function:main.py:ingest_repository",
+    "relation": "contains"
+  },
+  {
+    "source": "file:main.py",
+    "target": "function:main.py:analyze_repository",
+    "relation": "contains"
+  },
+  {
+    "source": "file:main.py",
+    "target": "class:main.py:RepositoryRequest",
+    "relation": "contains"
+  },
+  {
+    "source": "file:main.py",
+    "target": "class:main.py:AnalyzeRequest",
+    "relation": "contains"
+  },
+  {
+    "source": "file:run_experiment.py",
+    "target": "function:run_experiment.py:run",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\matcher.py",
+    "target": "function:impact_analysis\\matcher.py:__init__",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\matcher.py",
+    "target": "function:impact_analysis\\matcher.py:match",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\matcher.py",
+    "target": "class:impact_analysis\\matcher.py:ImpactMatcher",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\models.py",
+    "target": "class:impact_analysis\\models.py:ImpactAnalysisRequest",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\models.py",
+    "target": "class:impact_analysis\\models.py:ImpactedNode",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\models.py",
+    "target": "class:impact_analysis\\models.py:ImpactAnalysisResponse",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\traversal.py",
+    "target": "function:impact_analysis\\traversal.py:__init__",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\traversal.py",
+    "target": "function:impact_analysis\\traversal.py:downstream",
+    "relation": "contains"
+  },
+  {
+    "source": "file:impact_analysis\\traversal.py",
+    "target": "class:impact_analysis\\traversal.py:ImpactTraversal",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:get_book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:create_book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:update_book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:delete_book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:My_Books",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:My_Books_update",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\database.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\database.py:get_db",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:read_root",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name_with_age",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:create_student",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\main.py:Student",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\model.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\model.py:Book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\project.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\project.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\project.py:BookStore",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py:get_db",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:role_checker",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:user_dashboard",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\models.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\models.py:User",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py:UserCreate",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py",
+    "target": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py:UserLogin",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:hash_password",
+    "relation": "contains"
+  },
+  {
+    "source": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:verify_password",
+    "relation": "contains"
+  },
+  {
+    "source": "function:analysis.py:discover_files",
+    "target": "external:repo_path.rglob",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:discover_files",
+    "target": "external:any",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:discover_files",
+    "target": "external:files.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_text",
+    "target": "external:source[node.start_byte:node.end_byte].decode",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_name",
+    "target": "external:node.child_by_field_name",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_name",
+    "target": "function:analysis.py:_text",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_find",
+    "target": "external:found.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_find",
+    "target": "external:found.extend",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_find",
+    "target": "function:analysis.py:_find",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "external:str",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "external:file_path.relative_to",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "external:file_path.read_bytes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "external:get_parser(language).parse",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "external:get_parser",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "function:analysis.py:_read_functions",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "function:analysis.py:_read_classes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "function:analysis.py:_read_imports",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:parse_file",
+    "target": "function:analysis.py:_read_routes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_functions",
+    "target": "function:analysis.py:_find",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_functions",
+    "target": "function:analysis.py:_callee",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_functions",
+    "target": "external:functions.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_functions",
+    "target": "function:analysis.py:_name",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_classes",
+    "target": "function:analysis.py:_find",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_classes",
+    "target": "function:analysis.py:_name",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_classes",
+    "target": "external:classes.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_imports",
+    "target": "function:analysis.py:_text",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_imports",
+    "target": "function:analysis.py:_find",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "function:analysis.py:_find",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "external:ROUTE_PATTERN.search",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "function:analysis.py:_text",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "external:routes.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "external:match.group(1).upper",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_read_routes",
+    "target": "external:match.group",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_callee",
+    "target": "external:call.child_by_field_name",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:_callee",
+    "target": "function:analysis.py:_text",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:Path",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:root.exists",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:ValueError",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "function:analysis.py:parse_file",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "function:analysis.py:discover_files",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:len",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:sum",
+    "relation": "calls"
+  },
+  {
+    "source": "function:analysis.py:analyze",
+    "target": "external:f.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:__init__",
+    "target": "external:nx.DiGraph",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_files",
+    "target": "external:self.graph.add_node",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_functions",
+    "target": "external:file.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_functions",
+    "target": "external:self.graph.add_node",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_functions",
+    "target": "external:self.graph.add_edge",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_classes",
+    "target": "external:file.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_classes",
+    "target": "external:self.graph.add_node",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_classes",
+    "target": "external:self.graph.add_edge",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_index_definitions",
+    "target": "external:file.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_index_definitions",
+    "target": "external:self.definitions.setdefault(function[\"name\"], []).append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_index_definitions",
+    "target": "external:self.definitions.setdefault",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_index_definitions",
+    "target": "external:self.definitions.setdefault(cls[\"name\"], []).append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_routes",
+    "target": "external:file.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_routes",
+    "target": "external:self.graph.add_node",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_routes",
+    "target": "function:dependency_graph.py:_function_after",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_routes",
+    "target": "external:route.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_routes",
+    "target": "external:self.graph.add_edge",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_function_after",
+    "target": "external:min",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_calls",
+    "target": "external:file.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_calls",
+    "target": "external:function.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_calls",
+    "target": "function:dependency_graph.py:_resolve",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_calls",
+    "target": "external:self.graph.add_edge",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_add_calls",
+    "target": "external:self.graph.add_node",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_resolve",
+    "target": "external:call.startswith",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_resolve",
+    "target": "external:call.split",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_resolve",
+    "target": "external:self.definitions.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_resolve",
+    "target": "external:len",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_add_files",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_add_functions",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_add_classes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_index_definitions",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_add_routes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:build",
+    "target": "function:dependency_graph.py:_add_calls",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:summary",
+    "target": "function:dependency_graph.py:_external_call_count",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:summary",
+    "target": "external:sum",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:summary",
+    "target": "external:self.graph.edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:summary",
+    "target": "external:self.graph.number_of_nodes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:summary",
+    "target": "external:self.graph.number_of_edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_external_call_count",
+    "target": "external:sum",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:_external_call_count",
+    "target": "external:self.graph.edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:export_graphml",
+    "target": "external:Path",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:export_graphml",
+    "target": "external:path.parent.mkdir",
+    "relation": "calls"
+  },
+  {
+    "source": "function:dependency_graph.py:export_graphml",
+    "target": "external:nx.write_graphml",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:__init__",
+    "target": "external:GraphDatabase.driver",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:close",
+    "target": "external:self.driver.close",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:save",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:save",
+    "target": "external:session.execute_write",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:tx.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:graph.nodes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:LABELS.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:data.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:dict",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:graph.edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:_replace_repo",
+    "target": "external:RELATIONS.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_function",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_function",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_function",
+    "target": "external:result.single",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_function",
+    "target": "external:dict",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_file",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_file",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_file",
+    "target": "external:result.single",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_file",
+    "target": "external:dict",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_class",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_class",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_class",
+    "target": "external:result.single",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_class",
+    "target": "external:dict",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_route",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_route",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_route",
+    "target": "external:result.single",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_route",
+    "target": "external:dict",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:{\r\n        \"file\": \"File\",\r\n        \"function\": \"Function\",\r\n        \"class\": \"Class\",\r\n        \"route\": \"Route\",\r\n    }.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:ValueError",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:result.single",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_entity",
+    "target": "external:node.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_downstream",
+    "target": "external:self.driver.session",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_downstream",
+    "target": "external:session.run",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_downstream",
+    "target": "external:nodes.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:graph_store.py:find_downstream",
+    "target": "external:node.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:__init__",
+    "target": "external:Path",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:__init__",
+    "target": "external:self.workspace.mkdir",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:validate_url",
+    "target": "external:urlparse",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:validate_url",
+    "target": "external:parsed.path.strip(\"/\").split",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:validate_url",
+    "target": "external:parsed.path.strip",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:validate_url",
+    "target": "external:len",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:repository_exists",
+    "target": "external:requests.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:repo_url.rstrip(\"/\").split",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:repo_url.rstrip",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:datetime.now().strftime",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:datetime.now",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:Repo.clone_from",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:clone_repository",
+    "target": "external:str",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:ingest",
+    "target": "function:ingestion.py:validate_url",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:ingest",
+    "target": "external:ValueError",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:ingest",
+    "target": "function:ingestion.py:repository_exists",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:ingest",
+    "target": "function:ingestion.py:clone_repository",
+    "relation": "calls"
+  },
+  {
+    "source": "function:ingestion.py:ingest",
+    "target": "external:RuntimeError",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:ingest_repository",
+    "target": "external:service.ingest",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:ingest_repository",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:ingest_repository",
+    "target": "external:str",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:analyzer.analyze",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "class:dependency_graph.py:DependencyGraphBuilder",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:graph_builder.build",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:print",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:graph_builder.summary",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:graph.nodes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:graph.edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:Path",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:graph_builder.export_graphml",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:store.save",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:main.py:analyze_repository",
+    "target": "external:str",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "class:analysis.py:RepositoryAnalyzer",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:analyzer.analyze",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:open",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:json.dump",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "class:dependency_graph.py:DependencyGraphBuilder",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:builder.build",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:graph.nodes",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:data.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:node_types.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:graph.edges",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:edge_types.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:print",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:json.dumps",
+    "relation": "calls"
+  },
+  {
+    "source": "function:run_experiment.py:run",
+    "target": "external:builder.summary",
+    "relation": "calls"
+  },
+  {
+    "source": "function:impact_analysis\\matcher.py:match",
+    "target": "external:len",
+    "relation": "calls"
+  },
+  {
+    "source": "function:impact_analysis\\matcher.py:match",
+    "target": "external:ValueError",
+    "relation": "calls"
+  },
+  {
+    "source": "function:impact_analysis\\matcher.py:match",
+    "target": "external:self.graph_store.find_entity",
+    "relation": "calls"
+  },
+  {
+    "source": "function:impact_analysis\\traversal.py:downstream",
+    "target": "external:self.graph_store.find_downstream",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:get_book",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:create_book",
+    "target": "external:book.model_dump",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:create_book",
+    "target": "external:books.append",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:update_book",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:delete_book",
+    "target": "external:books.remove",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:delete_book",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\database.py:get_db",
+    "target": "external:SessionLocal",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\database.py:get_db",
+    "target": "external:db.close",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "target": "external:model.Book",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "target": "external:db.add",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "target": "external:db.commit",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "target": "external:db.refresh",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py:get_db",
+    "target": "external:SessionLocal",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py:get_db",
+    "target": "external:db.close",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "target": "external:data.copy",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "target": "external:datetime.utcnow",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "target": "external:timedelta",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "target": "external:to_encode.update",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "target": "external:jwt.encode",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.query(models.User).filter(models.User.username==user.username).first",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.query(models.User).filter",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.query",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:utils.hash_password",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:models.User",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.add",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.commit",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "target": "external:db.refresh",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:db.query(models.User).filter(models.User.username==form_data.username).first",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:db.query(models.User).filter",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:db.query",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "external:utils.verify_password",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "target": "external:jwt.decode",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "target": "external:payload.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "target": "external:current_user.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:role_checker",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:role_checker",
+    "target": "external:current_user.get",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:role_checker",
+    "target": "external:HTTPException",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:user_dashboard",
+    "target": "external:Depends",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:hash_password",
+    "target": "external:pwd_context.hash",
+    "relation": "calls"
+  },
+  {
+    "source": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:verify_password",
+    "target": "external:pwd_context.verify",
+    "relation": "calls"
+  },
+  {
+    "source": "route:GET:functions",
+    "target": "function:dependency_graph.py:_add_classes",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:functions",
+    "target": "function:dependency_graph.py:_add_routes",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:functions",
+    "target": "function:dependency_graph.py:_function_after",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:functions",
+    "target": "function:dependency_graph.py:_resolve",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:classes",
+    "target": "function:dependency_graph.py:_index_definitions",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:classes",
+    "target": "function:dependency_graph.py:_add_routes",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:routes",
+    "target": "function:dependency_graph.py:_function_after",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:line",
+    "target": "function:dependency_graph.py:_function_after",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:calls",
+    "target": "function:dependency_graph.py:_resolve",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:type",
+    "target": "function:graph_store.py:find_function",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:type",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:id",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:name",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:path",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:method",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:repo",
+    "target": "function:graph_store.py:find_downstream",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/",
+    "target": "function:main.py:home",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:read_root",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/ingest",
+    "target": "function:main.py:ingest_repository",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/analyze",
+    "target": "function:main.py:analyze_repository",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/books",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:get_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/book/{book_id}",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:get_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/book",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:create_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:PUT:/book/{book_id}",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:update_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:DELETE:/book/{book_id}",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:delete_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/greet",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/greet/{name}",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/greet2/{name}",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name_with_age",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/greet3/",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name_with_age",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/create_student",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:create_student",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/books",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/signup",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:POST:/login",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:sub",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:role",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:role",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/protected",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/profile",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "relation": "handled_by"
+  },
+  {
+    "source": "route:GET:/user/dashboard",
+    "target": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:user_dashboard",
+    "relation": "handled_by"
+  }
+]

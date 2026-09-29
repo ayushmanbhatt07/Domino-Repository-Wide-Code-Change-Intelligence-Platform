@@ -1,0 +1,1475 @@
+[
+  {
+    "id": "file:analysis.py",
+    "type": "file",
+    "name": "analysis.py"
+  },
+  {
+    "id": "file:config.py",
+    "type": "file",
+    "name": "config.py"
+  },
+  {
+    "id": "file:dependency_graph.py",
+    "type": "file",
+    "name": "dependency_graph.py"
+  },
+  {
+    "id": "file:graph_store.py",
+    "type": "file",
+    "name": "graph_store.py"
+  },
+  {
+    "id": "file:ingestion.py",
+    "type": "file",
+    "name": "ingestion.py"
+  },
+  {
+    "id": "file:main.py",
+    "type": "file",
+    "name": "main.py"
+  },
+  {
+    "id": "file:run_experiment.py",
+    "type": "file",
+    "name": "run_experiment.py"
+  },
+  {
+    "id": "file:test_impact.py",
+    "type": "file",
+    "name": "test_impact.py"
+  },
+  {
+    "id": "file:impact_analysis\\matcher.py",
+    "type": "file",
+    "name": "impact_analysis\\matcher.py"
+  },
+  {
+    "id": "file:impact_analysis\\models.py",
+    "type": "file",
+    "name": "impact_analysis\\models.py"
+  },
+  {
+    "id": "file:impact_analysis\\traversal.py",
+    "type": "file",
+    "name": "impact_analysis\\traversal.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\create_table.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\create_table.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\CRUD.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\database.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\database.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\main.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\main.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\model.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\model.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\project.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\project.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_table.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_table.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\key.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\key.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\models.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\models.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py"
+  },
+  {
+    "id": "file:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py",
+    "type": "file",
+    "name": "workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py"
+  },
+  {
+    "id": "function:analysis.py:discover_files",
+    "type": "function",
+    "name": "discover_files",
+    "start_line": 43,
+    "end_line": 57
+  },
+  {
+    "id": "function:analysis.py:_text",
+    "type": "function",
+    "name": "_text",
+    "start_line": 62,
+    "end_line": 63
+  },
+  {
+    "id": "function:analysis.py:_name",
+    "type": "function",
+    "name": "_name",
+    "start_line": 65,
+    "end_line": 67
+  },
+  {
+    "id": "function:analysis.py:_find",
+    "type": "function",
+    "name": "_find",
+    "start_line": 69,
+    "end_line": 78
+  },
+  {
+    "id": "function:analysis.py:parse_file",
+    "type": "function",
+    "name": "parse_file",
+    "start_line": 83,
+    "end_line": 108
+  },
+  {
+    "id": "function:analysis.py:_read_functions",
+    "type": "function",
+    "name": "_read_functions",
+    "start_line": 110,
+    "end_line": 125
+  },
+  {
+    "id": "function:analysis.py:_read_classes",
+    "type": "function",
+    "name": "_read_classes",
+    "start_line": 127,
+    "end_line": 142
+  },
+  {
+    "id": "function:analysis.py:_read_imports",
+    "type": "function",
+    "name": "_read_imports",
+    "start_line": 144,
+    "end_line": 146
+  },
+  {
+    "id": "function:analysis.py:_read_routes",
+    "type": "function",
+    "name": "_read_routes",
+    "start_line": 148,
+    "end_line": 163
+  },
+  {
+    "id": "function:analysis.py:_callee",
+    "type": "function",
+    "name": "_callee",
+    "start_line": 165,
+    "end_line": 168
+  },
+  {
+    "id": "function:analysis.py:analyze",
+    "type": "function",
+    "name": "analyze",
+    "start_line": 173,
+    "end_line": 190
+  },
+  {
+    "id": "function:dependency_graph.py:__init__",
+    "type": "function",
+    "name": "__init__",
+    "start_line": 18,
+    "end_line": 20
+  },
+  {
+    "id": "function:dependency_graph.py:_add_files",
+    "type": "function",
+    "name": "_add_files",
+    "start_line": 25,
+    "end_line": 33
+  },
+  {
+    "id": "function:dependency_graph.py:_add_functions",
+    "type": "function",
+    "name": "_add_functions",
+    "start_line": 38,
+    "end_line": 56
+  },
+  {
+    "id": "function:dependency_graph.py:_add_classes",
+    "type": "function",
+    "name": "_add_classes",
+    "start_line": 61,
+    "end_line": 73
+  },
+  {
+    "id": "function:dependency_graph.py:_index_definitions",
+    "type": "function",
+    "name": "_index_definitions",
+    "start_line": 79,
+    "end_line": 91
+  },
+  {
+    "id": "function:dependency_graph.py:_add_routes",
+    "type": "function",
+    "name": "_add_routes",
+    "start_line": 96,
+    "end_line": 119
+  },
+  {
+    "id": "function:dependency_graph.py:_function_after",
+    "type": "function",
+    "name": "_function_after",
+    "start_line": 121,
+    "end_line": 131
+  },
+  {
+    "id": "function:dependency_graph.py:_add_calls",
+    "type": "function",
+    "name": "_add_calls",
+    "start_line": 136,
+    "end_line": 157
+  },
+  {
+    "id": "function:dependency_graph.py:_resolve",
+    "type": "function",
+    "name": "_resolve",
+    "start_line": 159,
+    "end_line": 179
+  },
+  {
+    "id": "function:dependency_graph.py:build",
+    "type": "function",
+    "name": "build",
+    "start_line": 184,
+    "end_line": 196
+  },
+  {
+    "id": "function:dependency_graph.py:summary",
+    "type": "function",
+    "name": "summary",
+    "start_line": 201,
+    "end_line": 214
+  },
+  {
+    "id": "function:dependency_graph.py:_external_call_count",
+    "type": "function",
+    "name": "_external_call_count",
+    "start_line": 216,
+    "end_line": 220
+  },
+  {
+    "id": "function:dependency_graph.py:export_graphml",
+    "type": "function",
+    "name": "export_graphml",
+    "start_line": 225,
+    "end_line": 230
+  },
+  {
+    "id": "function:graph_store.py:__init__",
+    "type": "function",
+    "name": "__init__",
+    "start_line": 31,
+    "end_line": 35
+  },
+  {
+    "id": "function:graph_store.py:close",
+    "type": "function",
+    "name": "close",
+    "start_line": 37,
+    "end_line": 38
+  },
+  {
+    "id": "function:graph_store.py:save",
+    "type": "function",
+    "name": "save",
+    "start_line": 43,
+    "end_line": 46
+  },
+  {
+    "id": "function:graph_store.py:_replace_repo",
+    "type": "function",
+    "name": "_replace_repo",
+    "start_line": 49,
+    "end_line": 79
+  },
+  {
+    "id": "function:graph_store.py:find_function",
+    "type": "function",
+    "name": "find_function",
+    "start_line": 84,
+    "end_line": 104
+  },
+  {
+    "id": "function:graph_store.py:find_file",
+    "type": "function",
+    "name": "find_file",
+    "start_line": 109,
+    "end_line": 129
+  },
+  {
+    "id": "function:graph_store.py:find_class",
+    "type": "function",
+    "name": "find_class",
+    "start_line": 134,
+    "end_line": 154
+  },
+  {
+    "id": "function:graph_store.py:find_route",
+    "type": "function",
+    "name": "find_route",
+    "start_line": 160,
+    "end_line": 180
+  },
+  {
+    "id": "function:graph_store.py:find_entity",
+    "type": "function",
+    "name": "find_entity",
+    "start_line": 183,
+    "end_line": 241
+  },
+  {
+    "id": "function:graph_store.py:find_downstream",
+    "type": "function",
+    "name": "find_downstream",
+    "start_line": 242,
+    "end_line": 279
+  },
+  {
+    "id": "function:ingestion.py:__init__",
+    "type": "function",
+    "name": "__init__",
+    "start_line": 17,
+    "end_line": 19
+  },
+  {
+    "id": "function:ingestion.py:validate_url",
+    "type": "function",
+    "name": "validate_url",
+    "start_line": 24,
+    "end_line": 39
+  },
+  {
+    "id": "function:ingestion.py:repository_exists",
+    "type": "function",
+    "name": "repository_exists",
+    "start_line": 44,
+    "end_line": 48
+  },
+  {
+    "id": "function:ingestion.py:clone_repository",
+    "type": "function",
+    "name": "clone_repository",
+    "start_line": 53,
+    "end_line": 68
+  },
+  {
+    "id": "function:ingestion.py:ingest",
+    "type": "function",
+    "name": "ingest",
+    "start_line": 73,
+    "end_line": 89
+  },
+  {
+    "id": "function:main.py:home",
+    "type": "function",
+    "name": "home",
+    "start_line": 37,
+    "end_line": 41
+  },
+  {
+    "id": "function:main.py:ingest_repository",
+    "type": "function",
+    "name": "ingest_repository",
+    "start_line": 48,
+    "end_line": 80
+  },
+  {
+    "id": "function:main.py:analyze_repository",
+    "type": "function",
+    "name": "analyze_repository",
+    "start_line": 87,
+    "end_line": 167
+  },
+  {
+    "id": "function:run_experiment.py:run",
+    "type": "function",
+    "name": "run",
+    "start_line": 7,
+    "end_line": 45
+  },
+  {
+    "id": "function:impact_analysis\\matcher.py:__init__",
+    "type": "function",
+    "name": "__init__",
+    "start_line": 3,
+    "end_line": 4
+  },
+  {
+    "id": "function:impact_analysis\\matcher.py:match",
+    "type": "function",
+    "name": "match",
+    "start_line": 6,
+    "end_line": 52
+  },
+  {
+    "id": "function:impact_analysis\\traversal.py:__init__",
+    "type": "function",
+    "name": "__init__",
+    "start_line": 3,
+    "end_line": 4
+  },
+  {
+    "id": "function:impact_analysis\\traversal.py:downstream",
+    "type": "function",
+    "name": "downstream",
+    "start_line": 6,
+    "end_line": 16
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:get_book",
+    "type": "function",
+    "name": "get_book",
+    "start_line": 40,
+    "end_line": 46
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:create_book",
+    "type": "function",
+    "name": "create_book",
+    "start_line": 57,
+    "end_line": 59
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:update_book",
+    "type": "function",
+    "name": "update_book",
+    "start_line": 69,
+    "end_line": 76
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:delete_book",
+    "type": "function",
+    "name": "delete_book",
+    "start_line": 80,
+    "end_line": 85
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\database.py:get_db",
+    "type": "function",
+    "name": "get_db",
+    "start_line": 22,
+    "end_line": 27
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:read_root",
+    "type": "function",
+    "name": "read_root",
+    "start_line": 7,
+    "end_line": 8
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet",
+    "type": "function",
+    "name": "greet",
+    "start_line": 11,
+    "end_line": 12
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name",
+    "type": "function",
+    "name": "greet_name",
+    "start_line": 15,
+    "end_line": 16
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:greet_name_with_age",
+    "type": "function",
+    "name": "greet_name_with_age",
+    "start_line": 24,
+    "end_line": 25
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\main.py:create_student",
+    "type": "function",
+    "name": "create_student",
+    "start_line": 33,
+    "end_line": 38
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\project.py:create_book",
+    "type": "function",
+    "name": "create_book",
+    "start_line": 16,
+    "end_line": 21
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\auth_database.py:get_db",
+    "type": "function",
+    "name": "get_db",
+    "start_line": 22,
+    "end_line": 27
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:create_access_token",
+    "type": "function",
+    "name": "create_access_token",
+    "start_line": 16,
+    "end_line": 21
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:register_user",
+    "type": "function",
+    "name": "register_user",
+    "start_line": 26,
+    "end_line": 49
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:login",
+    "type": "function",
+    "name": "login",
+    "start_line": 53,
+    "end_line": 63
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:get_current_user",
+    "type": "function",
+    "name": "get_current_user",
+    "start_line": 67,
+    "end_line": 80
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:protected_route",
+    "type": "function",
+    "name": "protected_route",
+    "start_line": 84,
+    "end_line": 85
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:require_role",
+    "type": "function",
+    "name": "require_role",
+    "start_line": 86,
+    "end_line": 92
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:role_checker",
+    "type": "function",
+    "name": "role_checker",
+    "start_line": 87,
+    "end_line": 91
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:profile",
+    "type": "function",
+    "name": "profile",
+    "start_line": 95,
+    "end_line": 96
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\main.py:user_dashboard",
+    "type": "function",
+    "name": "user_dashboard",
+    "start_line": 103,
+    "end_line": 104
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:hash_password",
+    "type": "function",
+    "name": "hash_password",
+    "start_line": 6,
+    "end_line": 7
+  },
+  {
+    "id": "function:workspace\\fastapi_tutorial_20260722_032932\\auth\\utils.py:verify_password",
+    "type": "function",
+    "name": "verify_password",
+    "start_line": 10,
+    "end_line": 11
+  },
+  {
+    "id": "class:analysis.py:RepositoryAnalyzer",
+    "type": "class",
+    "name": "RepositoryAnalyzer"
+  },
+  {
+    "id": "class:dependency_graph.py:DependencyGraphBuilder",
+    "type": "class",
+    "name": "DependencyGraphBuilder"
+  },
+  {
+    "id": "class:graph_store.py:Neo4jGraphStore",
+    "type": "class",
+    "name": "Neo4jGraphStore"
+  },
+  {
+    "id": "class:ingestion.py:RepositoryIngestionService",
+    "type": "class",
+    "name": "RepositoryIngestionService"
+  },
+  {
+    "id": "class:main.py:RepositoryRequest",
+    "type": "class",
+    "name": "RepositoryRequest"
+  },
+  {
+    "id": "class:main.py:AnalyzeRequest",
+    "type": "class",
+    "name": "AnalyzeRequest"
+  },
+  {
+    "id": "class:impact_analysis\\matcher.py:ImpactMatcher",
+    "type": "class",
+    "name": "ImpactMatcher"
+  },
+  {
+    "id": "class:impact_analysis\\models.py:ImpactAnalysisRequest",
+    "type": "class",
+    "name": "ImpactAnalysisRequest"
+  },
+  {
+    "id": "class:impact_analysis\\models.py:ImpactedNode",
+    "type": "class",
+    "name": "ImpactedNode"
+  },
+  {
+    "id": "class:impact_analysis\\models.py:ImpactAnalysisResponse",
+    "type": "class",
+    "name": "ImpactAnalysisResponse"
+  },
+  {
+    "id": "class:impact_analysis\\traversal.py:ImpactTraversal",
+    "type": "class",
+    "name": "ImpactTraversal"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:My_Books",
+    "type": "class",
+    "name": "My_Books"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\CRUD.py:My_Books_update",
+    "type": "class",
+    "name": "My_Books_update"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\main.py:Student",
+    "type": "class",
+    "name": "Student"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\model.py:Book",
+    "type": "class",
+    "name": "Book"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\project.py:BookStore",
+    "type": "class",
+    "name": "BookStore"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\models.py:User",
+    "type": "class",
+    "name": "User"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py:UserCreate",
+    "type": "class",
+    "name": "UserCreate"
+  },
+  {
+    "id": "class:workspace\\fastapi_tutorial_20260722_032932\\auth\\schemas.py:UserLogin",
+    "type": "class",
+    "name": "UserLogin"
+  },
+  {
+    "id": "route:GET:functions",
+    "type": "route",
+    "method": "GET",
+    "path": "functions"
+  },
+  {
+    "id": "route:GET:classes",
+    "type": "route",
+    "method": "GET",
+    "path": "classes"
+  },
+  {
+    "id": "route:GET:routes",
+    "type": "route",
+    "method": "GET",
+    "path": "routes"
+  },
+  {
+    "id": "route:GET:line",
+    "type": "route",
+    "method": "GET",
+    "path": "line"
+  },
+  {
+    "id": "route:GET:calls",
+    "type": "route",
+    "method": "GET",
+    "path": "calls"
+  },
+  {
+    "id": "route:GET:type",
+    "type": "route",
+    "method": "GET",
+    "path": "type"
+  },
+  {
+    "id": "route:GET:id",
+    "type": "route",
+    "method": "GET",
+    "path": "id"
+  },
+  {
+    "id": "route:GET:name",
+    "type": "route",
+    "method": "GET",
+    "path": "name"
+  },
+  {
+    "id": "route:GET:path",
+    "type": "route",
+    "method": "GET",
+    "path": "path"
+  },
+  {
+    "id": "route:GET:method",
+    "type": "route",
+    "method": "GET",
+    "path": "method"
+  },
+  {
+    "id": "route:GET:repo",
+    "type": "route",
+    "method": "GET",
+    "path": "repo"
+  },
+  {
+    "id": "route:GET:/",
+    "type": "route",
+    "method": "GET",
+    "path": "/"
+  },
+  {
+    "id": "route:POST:/ingest",
+    "type": "route",
+    "method": "POST",
+    "path": "/ingest"
+  },
+  {
+    "id": "route:POST:/analyze",
+    "type": "route",
+    "method": "POST",
+    "path": "/analyze"
+  },
+  {
+    "id": "route:GET:relation",
+    "type": "route",
+    "method": "GET",
+    "path": "relation"
+  },
+  {
+    "id": "route:GET:/books",
+    "type": "route",
+    "method": "GET",
+    "path": "/books"
+  },
+  {
+    "id": "route:GET:/book/{book_id}",
+    "type": "route",
+    "method": "GET",
+    "path": "/book/{book_id}"
+  },
+  {
+    "id": "route:POST:/book",
+    "type": "route",
+    "method": "POST",
+    "path": "/book"
+  },
+  {
+    "id": "route:PUT:/book/{book_id}",
+    "type": "route",
+    "method": "PUT",
+    "path": "/book/{book_id}"
+  },
+  {
+    "id": "route:DELETE:/book/{book_id}",
+    "type": "route",
+    "method": "DELETE",
+    "path": "/book/{book_id}"
+  },
+  {
+    "id": "route:GET:/greet",
+    "type": "route",
+    "method": "GET",
+    "path": "/greet"
+  },
+  {
+    "id": "route:GET:/greet/{name}",
+    "type": "route",
+    "method": "GET",
+    "path": "/greet/{name}"
+  },
+  {
+    "id": "route:GET:/greet2/{name}",
+    "type": "route",
+    "method": "GET",
+    "path": "/greet2/{name}"
+  },
+  {
+    "id": "route:GET:/greet3/",
+    "type": "route",
+    "method": "GET",
+    "path": "/greet3/"
+  },
+  {
+    "id": "route:POST:/create_student",
+    "type": "route",
+    "method": "POST",
+    "path": "/create_student"
+  },
+  {
+    "id": "route:POST:/books",
+    "type": "route",
+    "method": "POST",
+    "path": "/books"
+  },
+  {
+    "id": "route:POST:/signup",
+    "type": "route",
+    "method": "POST",
+    "path": "/signup"
+  },
+  {
+    "id": "route:POST:/login",
+    "type": "route",
+    "method": "POST",
+    "path": "/login"
+  },
+  {
+    "id": "route:GET:sub",
+    "type": "route",
+    "method": "GET",
+    "path": "sub"
+  },
+  {
+    "id": "route:GET:role",
+    "type": "route",
+    "method": "GET",
+    "path": "role"
+  },
+  {
+    "id": "route:GET:/protected",
+    "type": "route",
+    "method": "GET",
+    "path": "/protected"
+  },
+  {
+    "id": "route:GET:/profile",
+    "type": "route",
+    "method": "GET",
+    "path": "/profile"
+  },
+  {
+    "id": "route:GET:/user/dashboard",
+    "type": "route",
+    "method": "GET",
+    "path": "/user/dashboard"
+  },
+  {
+    "id": "external:repo_path.rglob",
+    "type": "external",
+    "name": "repo_path.rglob"
+  },
+  {
+    "id": "external:any",
+    "type": "external",
+    "name": "any"
+  },
+  {
+    "id": "external:files.append",
+    "type": "external",
+    "name": "files.append"
+  },
+  {
+    "id": "external:source[node.start_byte:node.end_byte].decode",
+    "type": "external",
+    "name": "source[node.start_byte:node.end_byte].decode"
+  },
+  {
+    "id": "external:node.child_by_field_name",
+    "type": "external",
+    "name": "node.child_by_field_name"
+  },
+  {
+    "id": "external:found.append",
+    "type": "external",
+    "name": "found.append"
+  },
+  {
+    "id": "external:found.extend",
+    "type": "external",
+    "name": "found.extend"
+  },
+  {
+    "id": "external:str",
+    "type": "external",
+    "name": "str"
+  },
+  {
+    "id": "external:file_path.relative_to",
+    "type": "external",
+    "name": "file_path.relative_to"
+  },
+  {
+    "id": "external:file_path.read_bytes",
+    "type": "external",
+    "name": "file_path.read_bytes"
+  },
+  {
+    "id": "external:get_parser(language).parse",
+    "type": "external",
+    "name": "get_parser(language).parse"
+  },
+  {
+    "id": "external:get_parser",
+    "type": "external",
+    "name": "get_parser"
+  },
+  {
+    "id": "external:functions.append",
+    "type": "external",
+    "name": "functions.append"
+  },
+  {
+    "id": "external:classes.append",
+    "type": "external",
+    "name": "classes.append"
+  },
+  {
+    "id": "external:ROUTE_PATTERN.search",
+    "type": "external",
+    "name": "ROUTE_PATTERN.search"
+  },
+  {
+    "id": "external:routes.append",
+    "type": "external",
+    "name": "routes.append"
+  },
+  {
+    "id": "external:match.group(1).upper",
+    "type": "external",
+    "name": "match.group(1).upper"
+  },
+  {
+    "id": "external:match.group",
+    "type": "external",
+    "name": "match.group"
+  },
+  {
+    "id": "external:call.child_by_field_name",
+    "type": "external",
+    "name": "call.child_by_field_name"
+  },
+  {
+    "id": "external:Path",
+    "type": "external",
+    "name": "Path"
+  },
+  {
+    "id": "external:root.exists",
+    "type": "external",
+    "name": "root.exists"
+  },
+  {
+    "id": "external:ValueError",
+    "type": "external",
+    "name": "ValueError"
+  },
+  {
+    "id": "external:len",
+    "type": "external",
+    "name": "len"
+  },
+  {
+    "id": "external:sum",
+    "type": "external",
+    "name": "sum"
+  },
+  {
+    "id": "external:f.get",
+    "type": "external",
+    "name": "f.get"
+  },
+  {
+    "id": "external:nx.DiGraph",
+    "type": "external",
+    "name": "nx.DiGraph"
+  },
+  {
+    "id": "external:self.graph.add_node",
+    "type": "external",
+    "name": "self.graph.add_node"
+  },
+  {
+    "id": "external:file.get",
+    "type": "external",
+    "name": "file.get"
+  },
+  {
+    "id": "external:self.graph.add_edge",
+    "type": "external",
+    "name": "self.graph.add_edge"
+  },
+  {
+    "id": "external:self.definitions.setdefault(function[\"name\"], []).append",
+    "type": "external",
+    "name": "self.definitions.setdefault(function[\"name\"], []).append"
+  },
+  {
+    "id": "external:self.definitions.setdefault",
+    "type": "external",
+    "name": "self.definitions.setdefault"
+  },
+  {
+    "id": "external:self.definitions.setdefault(cls[\"name\"], []).append",
+    "type": "external",
+    "name": "self.definitions.setdefault(cls[\"name\"], []).append"
+  },
+  {
+    "id": "external:route.get",
+    "type": "external",
+    "name": "route.get"
+  },
+  {
+    "id": "external:min",
+    "type": "external",
+    "name": "min"
+  },
+  {
+    "id": "external:function.get",
+    "type": "external",
+    "name": "function.get"
+  },
+  {
+    "id": "external:call.startswith",
+    "type": "external",
+    "name": "call.startswith"
+  },
+  {
+    "id": "external:call.split",
+    "type": "external",
+    "name": "call.split"
+  },
+  {
+    "id": "external:self.definitions.get",
+    "type": "external",
+    "name": "self.definitions.get"
+  },
+  {
+    "id": "external:self.graph.edges",
+    "type": "external",
+    "name": "self.graph.edges"
+  },
+  {
+    "id": "external:self.graph.number_of_nodes",
+    "type": "external",
+    "name": "self.graph.number_of_nodes"
+  },
+  {
+    "id": "external:self.graph.number_of_edges",
+    "type": "external",
+    "name": "self.graph.number_of_edges"
+  },
+  {
+    "id": "external:path.parent.mkdir",
+    "type": "external",
+    "name": "path.parent.mkdir"
+  },
+  {
+    "id": "external:nx.write_graphml",
+    "type": "external",
+    "name": "nx.write_graphml"
+  },
+  {
+    "id": "external:GraphDatabase.driver",
+    "type": "external",
+    "name": "GraphDatabase.driver"
+  },
+  {
+    "id": "external:self.driver.close",
+    "type": "external",
+    "name": "self.driver.close"
+  },
+  {
+    "id": "external:self.driver.session",
+    "type": "external",
+    "name": "self.driver.session"
+  },
+  {
+    "id": "external:session.execute_write",
+    "type": "external",
+    "name": "session.execute_write"
+  },
+  {
+    "id": "external:tx.run",
+    "type": "external",
+    "name": "tx.run"
+  },
+  {
+    "id": "external:graph.nodes",
+    "type": "external",
+    "name": "graph.nodes"
+  },
+  {
+    "id": "external:LABELS.get",
+    "type": "external",
+    "name": "LABELS.get"
+  },
+  {
+    "id": "external:data.get",
+    "type": "external",
+    "name": "data.get"
+  },
+  {
+    "id": "external:dict",
+    "type": "external",
+    "name": "dict"
+  },
+  {
+    "id": "external:graph.edges",
+    "type": "external",
+    "name": "graph.edges"
+  },
+  {
+    "id": "external:RELATIONS.get",
+    "type": "external",
+    "name": "RELATIONS.get"
+  },
+  {
+    "id": "external:session.run",
+    "type": "external",
+    "name": "session.run"
+  },
+  {
+    "id": "external:result.single",
+    "type": "external",
+    "name": "result.single"
+  },
+  {
+    "id": "external:{\r\n        \"file\": \"File\",\r\n        \"function\": \"Function\",\r\n        \"class\": \"Class\",\r\n        \"route\": \"Route\",\r\n    }.get",
+    "type": "external",
+    "name": "{\r\n        \"file\": \"File\",\r\n        \"function\": \"Function\",\r\n        \"class\": \"Class\",\r\n        \"route\": \"Route\",\r\n    }.get"
+  },
+  {
+    "id": "external:node.get",
+    "type": "external",
+    "name": "node.get"
+  },
+  {
+    "id": "external:nodes.append",
+    "type": "external",
+    "name": "nodes.append"
+  },
+  {
+    "id": "external:self.workspace.mkdir",
+    "type": "external",
+    "name": "self.workspace.mkdir"
+  },
+  {
+    "id": "external:urlparse",
+    "type": "external",
+    "name": "urlparse"
+  },
+  {
+    "id": "external:parsed.path.strip(\"/\").split",
+    "type": "external",
+    "name": "parsed.path.strip(\"/\").split"
+  },
+  {
+    "id": "external:parsed.path.strip",
+    "type": "external",
+    "name": "parsed.path.strip"
+  },
+  {
+    "id": "external:requests.get",
+    "type": "external",
+    "name": "requests.get"
+  },
+  {
+    "id": "external:repo_url.rstrip(\"/\").split",
+    "type": "external",
+    "name": "repo_url.rstrip(\"/\").split"
+  },
+  {
+    "id": "external:repo_url.rstrip",
+    "type": "external",
+    "name": "repo_url.rstrip"
+  },
+  {
+    "id": "external:datetime.now().strftime",
+    "type": "external",
+    "name": "datetime.now().strftime"
+  },
+  {
+    "id": "external:datetime.now",
+    "type": "external",
+    "name": "datetime.now"
+  },
+  {
+    "id": "external:Repo.clone_from",
+    "type": "external",
+    "name": "Repo.clone_from"
+  },
+  {
+    "id": "external:RuntimeError",
+    "type": "external",
+    "name": "RuntimeError"
+  },
+  {
+    "id": "external:service.ingest",
+    "type": "external",
+    "name": "service.ingest"
+  },
+  {
+    "id": "external:HTTPException",
+    "type": "external",
+    "name": "HTTPException"
+  },
+  {
+    "id": "external:analyzer.analyze",
+    "type": "external",
+    "name": "analyzer.analyze"
+  },
+  {
+    "id": "external:graph_builder.build",
+    "type": "external",
+    "name": "graph_builder.build"
+  },
+  {
+    "id": "external:print",
+    "type": "external",
+    "name": "print"
+  },
+  {
+    "id": "external:graph_builder.summary",
+    "type": "external",
+    "name": "graph_builder.summary"
+  },
+  {
+    "id": "external:graph_builder.export_graphml",
+    "type": "external",
+    "name": "graph_builder.export_graphml"
+  },
+  {
+    "id": "external:store.save",
+    "type": "external",
+    "name": "store.save"
+  },
+  {
+    "id": "external:open",
+    "type": "external",
+    "name": "open"
+  },
+  {
+    "id": "external:json.dump",
+    "type": "external",
+    "name": "json.dump"
+  },
+  {
+    "id": "external:builder.build",
+    "type": "external",
+    "name": "builder.build"
+  },
+  {
+    "id": "external:node_types.get",
+    "type": "external",
+    "name": "node_types.get"
+  },
+  {
+    "id": "external:edge_types.get",
+    "type": "external",
+    "name": "edge_types.get"
+  },
+  {
+    "id": "external:json.dumps",
+    "type": "external",
+    "name": "json.dumps"
+  },
+  {
+    "id": "external:builder.summary",
+    "type": "external",
+    "name": "builder.summary"
+  },
+  {
+    "id": "external:self.graph_store.find_entity",
+    "type": "external",
+    "name": "self.graph_store.find_entity"
+  },
+  {
+    "id": "external:self.graph_store.find_downstream",
+    "type": "external",
+    "name": "self.graph_store.find_downstream"
+  },
+  {
+    "id": "external:book.model_dump",
+    "type": "external",
+    "name": "book.model_dump"
+  },
+  {
+    "id": "external:books.append",
+    "type": "external",
+    "name": "books.append"
+  },
+  {
+    "id": "external:books.remove",
+    "type": "external",
+    "name": "books.remove"
+  },
+  {
+    "id": "external:SessionLocal",
+    "type": "external",
+    "name": "SessionLocal"
+  },
+  {
+    "id": "external:db.close",
+    "type": "external",
+    "name": "db.close"
+  },
+  {
+    "id": "external:Depends",
+    "type": "external",
+    "name": "Depends"
+  },
+  {
+    "id": "external:model.Book",
+    "type": "external",
+    "name": "model.Book"
+  },
+  {
+    "id": "external:db.add",
+    "type": "external",
+    "name": "db.add"
+  },
+  {
+    "id": "external:db.commit",
+    "type": "external",
+    "name": "db.commit"
+  },
+  {
+    "id": "external:db.refresh",
+    "type": "external",
+    "name": "db.refresh"
+  },
+  {
+    "id": "external:data.copy",
+    "type": "external",
+    "name": "data.copy"
+  },
+  {
+    "id": "external:datetime.utcnow",
+    "type": "external",
+    "name": "datetime.utcnow"
+  },
+  {
+    "id": "external:timedelta",
+    "type": "external",
+    "name": "timedelta"
+  },
+  {
+    "id": "external:to_encode.update",
+    "type": "external",
+    "name": "to_encode.update"
+  },
+  {
+    "id": "external:jwt.encode",
+    "type": "external",
+    "name": "jwt.encode"
+  },
+  {
+    "id": "external:db.query(models.User).filter(models.User.username==user.username).first",
+    "type": "external",
+    "name": "db.query(models.User).filter(models.User.username==user.username).first"
+  },
+  {
+    "id": "external:db.query(models.User).filter",
+    "type": "external",
+    "name": "db.query(models.User).filter"
+  },
+  {
+    "id": "external:db.query",
+    "type": "external",
+    "name": "db.query"
+  },
+  {
+    "id": "external:utils.hash_password",
+    "type": "external",
+    "name": "utils.hash_password"
+  },
+  {
+    "id": "external:models.User",
+    "type": "external",
+    "name": "models.User"
+  },
+  {
+    "id": "external:db.query(models.User).filter(models.User.username==form_data.username).first",
+    "type": "external",
+    "name": "db.query(models.User).filter(models.User.username==form_data.username).first"
+  },
+  {
+    "id": "external:utils.verify_password",
+    "type": "external",
+    "name": "utils.verify_password"
+  },
+  {
+    "id": "external:jwt.decode",
+    "type": "external",
+    "name": "jwt.decode"
+  },
+  {
+    "id": "external:payload.get",
+    "type": "external",
+    "name": "payload.get"
+  },
+  {
+    "id": "external:current_user.get",
+    "type": "external",
+    "name": "current_user.get"
+  },
+  {
+    "id": "external:pwd_context.hash",
+    "type": "external",
+    "name": "pwd_context.hash"
+  },
+  {
+    "id": "external:pwd_context.verify",
+    "type": "external",
+    "name": "pwd_context.verify"
+  }
+]
