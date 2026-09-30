@@ -51,6 +51,9 @@ Computes structural metrics (fan-in, reverse-reachability), highlights structura
 ### Stage 7: AI-Assisted Reasoning
 Uses LangChain and Google Gemini to consume the deterministic structural impact results and generate a grounded, natural language engineering explanation, mitigating LLM hallucinations.
 
+### Stage 8: AI-Assisted Change Planning & Patch Generation
+Constructs structured change plans (Mode A) and generates safe, scoped unified diff proposals (Mode B). Implements strict evidence validation and security checking boundaries before presenting patches to the developer for review.
+
 ---
 
 ## System Architecture
@@ -63,6 +66,7 @@ Uses LangChain and Google Gemini to consume the deterministic structural impact 
 5. Impact Analysis (Graph Traversals)
 6. Engineering Intelligence (Metrics & Risk Scoring)
 7. AI Reasoning (Langchain + Gemini)
+8. Change Planning & Validation (Gemini)
 ```
 
 See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for more details.
@@ -114,6 +118,7 @@ uvicorn main:app --reload
 - Graph Persistence: Complete
 - Impact Analysis Engine: Complete
 - Engineering Intelligence: Complete
-- AI Reasoning: Complete
+- AI Reasoning (Stage 7): Complete
+- Change Planning & Patch Generation (Stage 8): Complete
 
 *The Domino backend is fully implemented and validated with an automated test suite.*

@@ -37,6 +37,12 @@ Domino is an AI-assisted, repository-wide code change intelligence platform.
    - Takes deterministic Stage 5 & 6 outputs as structural truth.
    - Constructs a grounded prompt context.
    - Queries an LLM (e.g., Google Gemini) to generate natural language explanations, risk breakdown, and testing guidance.
+
+8. CHANGE PLANNING & PATCH GENERATION (Stage 8)
+   - Generates a structured ChangePlan for implementing a user request (Mode A).
+   - Generates a unified diff patch proposal grounded in the ChangePlan (Mode B).
+   - Validates patch syntax, scope, and security to prevent unintended or malicious modifications.
+   - Preserves deterministic Graph/Python source-of-truth while giving the LLM reasoning responsibilities.
 ```
 
 ## Core Components
