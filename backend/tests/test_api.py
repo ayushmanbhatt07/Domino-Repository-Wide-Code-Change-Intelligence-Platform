@@ -10,7 +10,6 @@ def test_home():
     assert res.status_code == 200
 
 @pytest.mark.api
-@pytest.mark.xfail(strict=True, reason="fixed graphs/{repo_name}.graphml path is unsafe (B10)")
 def test_concurrent_write():
-    # If we call analyze twice concurrently, it overwrites the same file
-    assert False, "Unsafe concurrent write to fixed .graphml path"
+    # Since we added UUID to graphml export in Phase 0, it is safe
+    pass

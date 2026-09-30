@@ -1,5 +1,6 @@
 import pytest
 import config
+import inspect
 
 @pytest.mark.stage4
 @pytest.mark.neo4j
@@ -19,15 +20,13 @@ def test_save_graph(neo4j_store):
         assert count > 0
 
 @pytest.mark.stage4
-@pytest.mark.xfail(strict=True, reason="No UNWIND batching (B6)")
 def test_batching(neo4j_store):
-    # This is hard to assert purely externally without mocking/profiling tx.run calls.
-    # We will raise to trigger the xfail since we know it's missing.
-    assert False, "graph_store writes node-by-node"
+    source = inspect.getsource(neo4j_store._replace_repo_tx)
+    assert "UNWIND" in source
 
 @pytest.mark.stage4
-@pytest.mark.xfail(strict=True, reason="No uniqueness constraints (B7)")
 def test_uniqueness_constraints(neo4j_store):
+    neo4j_store.ensure_schema()
     with neo4j_store.driver.session(database=config.NEO4J_DATABASE) as session:
         constraints = list(session.run("SHOW CONSTRAINTS"))
         assert any("id" in str(c) for c in constraints)

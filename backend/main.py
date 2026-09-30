@@ -13,6 +13,7 @@ from graph_store import Neo4jGraphStore
 
 from impact_analysis.router import router as impact_router
 from intelligence.router import router as intelligence_router
+from ai_reasoning.router import router as ai_reasoning_router
 
 store = Neo4jGraphStore()
 service = RepositoryIngestionService()
@@ -38,6 +39,7 @@ app = FastAPI(
 
 app.include_router(impact_router)
 app.include_router(intelligence_router)
+app.include_router(ai_reasoning_router)
 
 class RepositoryRequest(BaseModel):
     repo_url: str

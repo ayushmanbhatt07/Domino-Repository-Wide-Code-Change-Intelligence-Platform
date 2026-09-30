@@ -12,54 +12,13 @@ Unlike traditional AI coding assistants that focus on generating or explaining c
 
 ---
 
-## The Problem
-
-Modern software systems are highly interconnected.
-
-A seemingly harmless change in a single file can affect:
-
-- Authentication systems
-- API endpoints
-- Internal services
-- Database interactions
-- Critical business workflows
-
-Developers often spend hours manually investigating:
-
-- What depends on this file?
-- Which APIs are affected?
-- What could break?
-- Which tests should be executed?
-- How risky is this change?
-
-For large repositories, this process becomes increasingly difficult and depends heavily on tribal knowledge and senior engineers.
-
-Domino automates this analysis.
-
----
-
 ## Why Domino?
-
-Existing tools such as Claude Code, Cursor, and GitHub Copilot are excellent at:
-
-✅ Explaining code
-
-✅ Writing code
-
-✅ Refactoring code
-
-✅ Generating code
-
-However, they primarily answer:
-
-> What does this code do?
 
 Domino answers a different question:
 
 > What happens if I change this code?
 
 Domino is built specifically for:
-
 - Change Impact Analysis
 - Dependency Graph Reasoning
 - Risk Assessment
@@ -69,420 +28,92 @@ Domino is built specifically for:
 
 ---
 
-## Example
+## Core Features (v1.0 Complete)
 
-### Input
+### Stage 1: Repository Ingestion
+Import and clone GitHub repositories temporarily for analysis without leaving stale artifacts on disk.
 
-Developer modifies:
+### Stage 2: Understanding (Static Analysis)
+Parses Python code using `tree-sitter` to extract files, functions, classes, imports, external dependencies, and API routes.
 
-```python
-auth/service.py
-```
+### Stage 3: Dependency Graph Construction
+Automatically generates a repository-wide `NetworkX` graph mapping `CONTAINS`, `CALLS`, `HANDLED_BY`, `IMPORTS`, and `REFERENCES` relationships.
 
-### Domino Analysis
+### Stage 4: Graph Persistence
+Persists the graph to `Neo4j` with tenant isolation (`repo` property) ensuring no cross-repository contamination.
 
-```text
-Impact Score: 84/100
+### Stage 5: Change Impact Analysis
+Given an entity selector (e.g., `get_db`), resolves the target dynamically and traverses the dependency graph upstream to find all impacted downstream services, endpoints, and components.
 
-Affected Components:
-- Authentication Service
-- User Service
-- Session Manager
+### Stage 6: Engineering Intelligence
+Computes structural metrics (fan-in, reverse-reachability), highlights structural hotspots, determines test coverage gaps, recommends existing tests, and calculates a holistic 0-100 Risk Score.
 
-Affected APIs:
-- POST /login
-- POST /logout
-- POST /reset-password
-
-Recommended Tests:
-- auth_test.py
-- login_test.py
-- session_test.py
-
-Risk Level:
-High
-```
-
-### AI Explanation
-
-```text
-Changes in auth/service.py may impact session creation,
-user authentication, and password reset workflows.
-
-Authentication-related endpoints are highly connected
-within the dependency graph and should be validated
-before deployment.
-```
-
----
-
-## Core Features
-
-### Repository Ingestion
-
-Import and analyze GitHub repositories.
-
-- GitHub URL ingestion
-- Repository cloning
-- Metadata extraction
-- Source code indexing
-
----
-
-### Dependency Graph Construction
-
-Automatically generate:
-
-- File Dependency Graphs
-- Function Call Graphs
-- Class Relationship Graphs
-- Service Dependency Maps
-
----
-
-### Change Impact Analysis
-
-Given a file, module, or code change:
-
-- Identify impacted components
-- Determine downstream dependencies
-- Calculate change reach
-- Detect critical paths
-
----
-
-### Risk Assessment Engine
-
-Generate:
-
-- Impact Scores
-- Risk Levels
-- Dependency Hotspots
-- Critical Module Identification
-
----
-
-### AI-Assisted Reasoning
-
-Convert graph analysis into:
-
-- Human-readable explanations
-- Engineering recommendations
-- Validation strategies
-- Risk summaries
-
----
-
-### Test Recommendation Engine
-
-Automatically determine:
-
-- Relevant test suites
-- Validation requirements
-- Regression risks
-- Suggested testing paths
-
----
-
-## How Domino Works
-
-### Step 1 — Repository Ingestion
-
-A repository is imported from GitHub.
-
-Domino extracts:
-
-- Files
-- Classes
-- Functions
-- Imports
-- API Routes
-- Database Models
-
----
-
-### Step 2 — Dependency Graph Generation
-
-Domino builds a repository-wide graph.
-
-#### Nodes
-
-- Files
-- Functions
-- Classes
-- Services
-- APIs
-
-#### Edges
-
-- Imports
-- Function Calls
-- Service Dependencies
-- API Relationships
-
----
-
-### Step 3 — Impact Analysis
-
-When a file is modified:
-
-Domino traverses dependency paths to identify:
-
-- Affected Modules
-- Impacted APIs
-- Downstream Services
-- Critical Dependencies
-
----
-
-### Step 4 — AI Reasoning
-
-Graph analysis results are passed to an LLM.
-
-The model generates:
-
-- Explanations
-- Risk Reports
-- Testing Guidance
-- Change Summaries
+### Stage 7: AI-Assisted Reasoning
+Uses LangChain and Google Gemini to consume the deterministic structural impact results and generate a grounded, natural language engineering explanation, mitigating LLM hallucinations.
 
 ---
 
 ## System Architecture
 
 ```text
-                    ┌─────────────┐
-                    │   React UI  │
-                    └──────┬──────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ FastAPI Backend │
-                  └────────┬────────┘
-                           │
-         ┌─────────────────┼─────────────────┐
-         ▼                                   ▼
-
-┌────────────────┐                ┌────────────────┐
-│ PostgreSQL     │                │ NetworkX Graph │
-│ Metadata Store │                │ Dependency Map │
-└────────────────┘                └────────────────┘
-                                           │
-                                           ▼
-
-                               ┌─────────────────────┐
-                               │ Impact Analysis     │
-                               │ Engine              │
-                               └──────────┬──────────┘
-                                          │
-                                          ▼
-
-                               ┌─────────────────────┐
-                               │ Gemini + LangChain  │
-                               └──────────┬──────────┘
-                                          │
-                                          ▼
-
-                               ┌─────────────────────┐
-                               │ Impact Report       │
-                               └─────────────────────┘
+1. Ingestion (GitPython)
+2. Understanding (Tree-sitter)
+3. Graph Construction (NetworkX)
+4. Persistence (Neo4j)
+5. Impact Analysis (Graph Traversals)
+6. Engineering Intelligence (Metrics & Risk Scoring)
+7. AI Reasoning (Langchain + Gemini)
 ```
+
+See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for more details.
 
 ---
 
 ## Technology Stack
 
-### Frontend
-
-- React
-- Tailwind CSS
-- Axios
-
 ### Backend
-
 - FastAPI
-- SQLAlchemy
-- Pydantic
-- JWT Authentication
+- NetworkX
+- Tree-sitter
+- GitPython
 
 ### Database
-
-- PostgreSQL (Neon)
-
-### Graph Analysis
-
-- NetworkX
+- Neo4j
 
 ### AI Layer
-
 - LangChain
-- Gemini API
-
-### Infrastructure
-
-- Docker
-- GitHub Actions
-
----
-
-## Project Structure
-
-```text
-domino/
-│
-├── backend/
-│   ├── app/
-│   │   ├── api/
-│   │   ├── graph/
-│   │   ├── services/
-│   │   ├── models/
-│   │   ├── core/
-│   │   └── main.py
-│   │
-│   ├── requirements.txt
-│   └── Dockerfile
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.js
-│
-├── docs/
-│
-├── README.md
-├── LICENSE
-├── .gitignore
-└── docker-compose.yml
-```
+- Google Gemini API
 
 ---
 
 ## Running Locally
 
-### Clone Repository
-
-```bash
-git clone https://github.com/yourusername/domino.git
-
-cd domino
-```
-
 ### Backend Setup
 
 ```bash
 cd backend
-
 python -m venv venv
-
-source venv/bin/activate
+# Windows: venv\Scripts\activate
+# Unix: source venv/bin/activate
 
 pip install -r requirements.txt
-
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 ```
 
-### Frontend Setup
-
-```bash
-cd frontend
-
-npm install
-
-npm run dev
-```
-
----
-
-## MVP Roadmap
-
-### Phase 1
-
-- [ ] GitHub Repository Ingestion
-- [ ] Metadata Extraction
-- [ ] Dependency Graph Construction
-- [ ] Repository Visualization
-
-### Phase 2
-
-- [ ] Impact Analysis Engine
-- [ ] Risk Scoring
-- [ ] AI-Powered Explanations
-- [ ] Test Recommendations
-
-### Phase 3
-
-- [ ] Pull Request Analysis
-- [ ] GitHub Integration
-- [ ] Repository Monitoring
-
----
-
-## Future Enhancements
-
-### Graph Database
-
-- Neo4j Integration
-
-### Performance
-
-- Redis Caching
-- Async Repository Processing
-
-### GitHub Features
-
-- Pull Request Reviews
-- Merge Risk Reports
-- GitHub Actions Integration
-
-### Enterprise Features
-
-- Multi-Repository Analysis
-- Historical Change Tracking
-- Team Collaboration
-
----
-
-## Use Cases
-
-### Engineering Teams
-
-Understand the impact of changes before deployment.
-
-### Startups
-
-Reduce regressions while moving quickly.
-
-### Large Codebases
-
-Improve visibility into repository-wide dependencies.
-
-### New Developers
-
-Navigate unfamiliar systems with confidence.
-
-### Platform Teams
-
-Analyze change propagation across critical services.
-
----
-
-## Vision
-
-Software teams should not rely solely on intuition to understand the consequences of code changes.
-
-Domino aims to become an engineering intelligence platform that enables developers to safely evolve complex software systems through graph-based reasoning, dependency analysis, and AI-assisted impact prediction.
+*Note: Requires a running Neo4j instance at `bolt://127.0.0.1:7687` with credentials `neo4j/password` (configurable in `config.py`).*
+*Note: Requires `GOOGLE_API_KEY` environment variable for Stage 7 AI reasoning.*
 
 ---
 
 ## Status
 
-🚧 Active Development
+🚀 **v1.0 - Backend Pipeline Complete**
 
-Current Focus:
+- Repository Ingestion Engine: Complete
+- Dependency Graph Builder: Complete
+- Graph Persistence: Complete
+- Impact Analysis Engine: Complete
+- Engineering Intelligence: Complete
+- AI Reasoning: Complete
 
-- Repository Ingestion Engine
-- Dependency Graph Builder
-- Impact Analysis MVP
-
-Version: v0.1.0
+*The Domino backend is fully implemented and validated with an automated test suite.*

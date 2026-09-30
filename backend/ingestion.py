@@ -67,6 +67,7 @@ class RepositoryIngestionService:
         try:
             repo = Repo.clone_from(repo_url, clone_path, depth=1)
             commit_sha = repo.head.commit.hexsha
+            repo.close()  # Release file handles to prevent lock on Windows
             
             return {
                 "repository": repo_id,
@@ -78,12 +79,13 @@ class RepositoryIngestionService:
             
     def cleanup(self, path: str):
         if path and os.path.exists(path) and "workspace" in path:
+            import stat
+            for root, dirs, files in os.walk(path):
+                for dir in dirs:
+                    os.chmod(os.path.join(root, dir), stat.S_IWRITE)
+                for file in files:
+                    os.chmod(os.path.join(root, file), stat.S_IWRITE)
             try:
-                # Handle Windows permissions issues with .git folder
-                import stat
-                def remove_readonly(func, path, excinfo):
-                    os.chmod(path, stat.S_IWRITE)
-                    func(path)
-                shutil.rmtree(path, onerror=remove_readonly)
-            except Exception as e:
+                shutil.rmtree(path)
+            except Exception:
                 pass # Best effort
