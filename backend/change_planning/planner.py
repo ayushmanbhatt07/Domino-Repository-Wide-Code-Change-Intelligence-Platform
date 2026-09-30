@@ -7,8 +7,8 @@ from .prompts import get_planner_prompt, get_patch_prompt
 
 class ChangePlannerLLMService:
     def __init__(self):
-        self.api_key = os.getenv("GOOGLE_API_KEY")
-        self.model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+        self.api_key = os.getenv("GEMINI_API_KEY")
+        self.model_name = os.getenv("LLM_MODEL", "gemini-1.5-flash")
         
         if self.api_key:
             self.llm = ChatGoogleGenerativeAI(
@@ -25,7 +25,7 @@ class ChangePlannerLLMService:
 
     def generate_plan(self, request: str, context: str) -> Optional[ChangePlan]:
         if not self.structured_llm:
-            return None
+            raise RuntimeError("Gemini LLM initialization failed: missing GEMINI_API_KEY.")
             
         prompt = get_planner_prompt()
         chain = prompt | self.structured_llm
@@ -33,12 +33,11 @@ class ChangePlannerLLMService:
         try:
             return chain.invoke({"request": request, "context": context})
         except Exception as e:
-            print(f"Change Planning Error: {e}")
-            return None
+            raise RuntimeError(f"Change Planning Error: {str(e)}")
 
     def generate_patch(self, request: str, plan_json: str, context: str) -> Optional[str]:
         if not self.llm:
-            return None
+            raise RuntimeError("Gemini LLM initialization failed: missing GEMINI_API_KEY.")
             
         prompt = get_patch_prompt()
         chain = prompt | self.llm | StrOutputParser()
@@ -50,5 +49,4 @@ class ChangePlannerLLMService:
                 "context": context
             })
         except Exception as e:
-            print(f"Patch Generation Error: {e}")
-            return None
+            raise RuntimeError(f"Patch Generation Error: {str(e)}")
