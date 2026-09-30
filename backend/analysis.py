@@ -315,7 +315,10 @@ class RepositoryAnalyzer:
         for path in repo_path.rglob("*"):
             if path.suffix not in LANGUAGES:
                 continue
-            if any(part in SKIP_DIRS for part in path.parts):
+            
+            # Check relative parts
+            rel_parts = path.relative_to(repo_path).parts
+            if any(part in SKIP_DIRS for part in rel_parts):
                 continue
             files.append(path)
         return files
