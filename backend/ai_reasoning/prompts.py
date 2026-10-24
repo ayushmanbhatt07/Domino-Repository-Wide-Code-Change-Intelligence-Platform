@@ -1,4 +1,7 @@
-from langchain_core.prompts import ChatPromptTemplate
+try:
+    from langchain_core.prompts import ChatPromptTemplate
+except ImportError:
+    ChatPromptTemplate = None
 
 SYSTEM_PROMPT = """You are Domino, an AI-assisted engineering reasoning system. Your job is to explain the impact of proposed code changes based ONLY on the structural truth (graph data) provided to you.
 
@@ -19,6 +22,8 @@ Your response must provide:
 """
 
 def get_reasoning_prompt():
+    if not ChatPromptTemplate:
+        return None
     return ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
         ("human", "Analyze the following engineering context and provide a structured explanation:\n\n{context}")

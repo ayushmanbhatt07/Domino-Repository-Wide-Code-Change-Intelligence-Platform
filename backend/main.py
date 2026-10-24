@@ -14,6 +14,7 @@ from graph_store import Neo4jGraphStore
 from impact_analysis.router import router as impact_router
 from intelligence.router import router as intelligence_router
 from ai_reasoning.router import router as ai_reasoning_router
+from self_rag.router import router as self_rag_router, indexer as code_indexer
 
 store = Neo4jGraphStore()
 service = RepositoryIngestionService()
@@ -32,14 +33,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Domino",
-    version="0.2",
-    description="Repository-Wide Code Change Intelligence Platform",
+    version="0.3",
+    description="Repository-Wide Code Change Intelligence & Self-RAG Assistant",
     lifespan=lifespan
 )
 
 app.include_router(impact_router)
 app.include_router(intelligence_router)
 app.include_router(ai_reasoning_router)
+app.include_router(self_rag_router)
 
 class RepositoryRequest(BaseModel):
     repo_url: str
@@ -95,11 +97,19 @@ def analyze_repository(request: AnalyzeRequest):
             print("Neo4j store failed:", e)
             stored_in_neo4j = False
             
+        # Index in ChromaDB & BM25 for Self-RAG
+        try:
+            indexed_count = code_indexer.index_repository(request.repo_name, result)
+        except Exception as e:
+            print("Self-RAG indexing failed:", e)
+            indexed_count = 0
+            
         return {
             "status": "success",
             "graph_summary": graph_builder.summary(),
             "graph_file": graph_file,
-            "stored_in_neo4j": stored_in_neo4j
+            "stored_in_neo4j": stored_in_neo4j,
+            "indexed_code_chunks": indexed_count
         }
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

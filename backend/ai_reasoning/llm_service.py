@@ -1,6 +1,9 @@
 import os
 from typing import Optional
-from langchain_google_genai import ChatGoogleGenerativeAI
+try:
+    from langchain_google_genai import ChatGoogleGenerativeAI
+except ImportError:
+    ChatGoogleGenerativeAI = None
 from .models import AIExplanation
 from .prompts import get_reasoning_prompt
 
@@ -10,7 +13,7 @@ class LLMService:
         self.api_key = os.getenv("GOOGLE_API_KEY")
         self.model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
         
-        if self.api_key:
+        if self.api_key and ChatGoogleGenerativeAI:
             self.llm = ChatGoogleGenerativeAI(
                 model=self.model_name,
                 temperature=0.2,
