@@ -33,15 +33,23 @@ class RepositoryIngestionService:
         return True
 
     def repository_exists(self, repo_url: str) -> bool:
-        # Just head request to see if it's there
-        # For ".git" suffix remove it for web request
         clean_url = repo_url
         if clean_url.endswith(".git"):
             clean_url = clean_url[:-4]
         try:
             response = requests.head(clean_url, allow_redirects=True, timeout=5)
-            return response.status_code == 200
-        except:
+            if response.status_code == 200:
+                return True
+        except Exception:
+            pass
+
+        # Fallback to git ls-remote (supports private/credential-authenticated repos)
+        try:
+            from git import cmd
+            g = cmd.Git()
+            output = g.ls_remote(repo_url)
+            return bool(output)
+        except Exception:
             return False
 
     def ingest(self, repo_url: str, custom_repo_name: str = None):

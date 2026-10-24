@@ -76,10 +76,23 @@ def ingest_repository(request: RepositoryRequest):
 
 @app.post("/analyze")
 def analyze_repository(request: AnalyzeRequest):
+    target_path = request.path
+    commit_sha = request.commit_sha
+    is_remote_url = request.path.startswith("http://") or request.path.startswith("https://") or request.path.endswith(".git")
+    
     try:
-        result = analyzer.analyze(request.path)
+        # If user passed a GitHub URL into /analyze directly, auto-clone it
+        if is_remote_url:
+            repo_name_val = request.repo_name if request.repo_name != "string" else None
+            ingest_res = service.ingest(request.path, repo_name_val)
+            target_path = ingest_res["path"]
+            commit_sha = ingest_res["commit_sha"]
+            if request.repo_name == "string":
+                request.repo_name = ingest_res["repository"]
+
+        result = analyzer.analyze(target_path)
         result["summary"]["repository"] = request.repo_name
-        result["commit_sha"] = request.commit_sha
+        result["commit_sha"] = commit_sha
         
         graph_builder = DependencyGraphBuilder()
         graph = graph_builder.build(result)
@@ -116,5 +129,5 @@ def analyze_repository(request: AnalyzeRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     finally:
-        if not request.keep_clone:
-            service.cleanup(request.path)
+        if not request.keep_clone and is_remote_url:
+            service.cleanup(target_path)
