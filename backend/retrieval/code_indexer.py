@@ -36,10 +36,41 @@ class CodeIndexer:
     """
     def __init__(self, persist_dir: str = "./chroma_db"):
         self.persist_dir = persist_dir
+        os.makedirs(persist_dir, exist_ok=True)
         self.chroma_client = chromadb.PersistentClient(path=persist_dir)
         self.embedding_fn = LocalFeatureEmbeddingFunction(dim=128)
         self.bm25_indices: Dict[str, BM25Index] = {}
         self.code_store: Dict[str, Dict[str, Any]] = {} # chunk_id -> chunk_data
+        self._load_caches()
+
+    def _save_cache(self, repo_id: str, documents_for_bm25: List[Dict[str, Any]]):
+        import json
+        cache_file = os.path.join(self.persist_dir, f"{repo_id}_bm25_store.json")
+        try:
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump({
+                    "bm25_docs": documents_for_bm25,
+                    "code_store": self.code_store
+                }, f)
+        except Exception as e:
+            print("Failed to save BM25 cache to disk:", e)
+
+    def _load_caches(self):
+        import json
+        if not os.path.exists(self.persist_dir):
+            return
+        for fname in os.listdir(self.persist_dir):
+            if fname.endswith("_bm25_store.json"):
+                repo_id = fname[:-16]
+                try:
+                    with open(os.path.join(self.persist_dir, fname), "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    bm25 = BM25Index()
+                    bm25.build_index(data.get("bm25_docs", []))
+                    self.bm25_indices[repo_id] = bm25
+                    self.code_store.update(data.get("code_store", {}))
+                except Exception as e:
+                    print(f"Error restoring cache {fname}:", e)
 
     def index_repository(self, repo_id: str, analysis_result: Dict[str, Any]) -> int:
         """
@@ -69,7 +100,8 @@ class CodeIndexer:
             
             # 1. Index functions
             for fn in file_info.get("functions", []):
-                chunk_id = f"{file_path}::{fn.get('qualified_name', fn.get('name'))}"
+                base_id = f"{file_path}::{fn.get('qualified_name', fn.get('name'))}"
+                chunk_id = f"{base_id}#L{fn.get('start_line', 1)}"
                 code = fn.get("code_content", "")
                 if not code:
                     code = f"def {fn.get('name')}():\n    pass # lines {fn.get('start_line')}-{fn.get('end_line')}"
@@ -85,11 +117,13 @@ class CodeIndexer:
                     "repo_id": repo_id
                 }
                 
-                self.code_store[chunk_id] = {
+                chunk_obj = {
                     "id": chunk_id,
                     "code": code,
                     "metadata": meta
                 }
+                self.code_store[chunk_id] = chunk_obj
+                self.code_store[base_id] = chunk_obj
                 
                 ids.append(chunk_id)
                 documents.append(f"Function: {fn.get('qualified_name')}\nFile: {file_path}\n{code}")
@@ -98,7 +132,8 @@ class CodeIndexer:
 
             # 2. Index classes
             for cls in file_info.get("classes", []):
-                chunk_id = f"{file_path}::{cls.get('qualified_name', cls.get('name'))}"
+                base_id = f"{file_path}::{cls.get('qualified_name', cls.get('name'))}"
+                chunk_id = f"{base_id}#L{cls.get('start_line', 1)}"
                 code = cls.get("code_content", "")
                 if not code:
                     code = f"class {cls.get('name')}:\n    pass # lines {cls.get('start_line')}-{cls.get('end_line')}"
@@ -114,11 +149,13 @@ class CodeIndexer:
                     "repo_id": repo_id
                 }
                 
-                self.code_store[chunk_id] = {
+                chunk_obj = {
                     "id": chunk_id,
                     "code": code,
                     "metadata": meta
                 }
+                self.code_store[chunk_id] = chunk_obj
+                self.code_store[base_id] = chunk_obj
                 
                 ids.append(chunk_id)
                 documents.append(f"Class: {cls.get('qualified_name')}\nFile: {file_path}\n{code}")
@@ -140,7 +177,26 @@ class CodeIndexer:
         bm25.build_index(documents_for_bm25)
         self.bm25_indices[repo_id] = bm25
 
+        # Persist BM25 and code_store to disk
+        self._save_cache(repo_id, documents_for_bm25)
+
         return len(ids)
 
     def get_chunk(self, chunk_id: str) -> Optional[Dict[str, Any]]:
-        return self.code_store.get(chunk_id)
+        if chunk_id in self.code_store:
+            return self.code_store[chunk_id]
+        base_id = chunk_id.split("#L")[0]
+        if base_id in self.code_store:
+            return self.code_store[base_id]
+            
+        # Fallback to querying persistent ChromaDB directly
+        try:
+            for coll in self.chroma_client.list_collections():
+                res = coll.get(ids=[chunk_id])
+                if res and res.get("documents") and res["documents"]:
+                    doc = res["documents"][0]
+                    meta = res["metadatas"][0] if res.get("metadatas") else {}
+                    return {"id": chunk_id, "code": doc, "metadata": meta}
+        except Exception:
+            pass
+        return None
