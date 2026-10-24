@@ -52,8 +52,12 @@ def get_stats():
     """
     Health check and index statistics for Self-RAG.
     """
+    repos = list(indexer.bm25_indices.keys())
+    total_chunks = len(indexer.code_store)
     return {
         "status": "active",
-        "indexed_chunks": len(indexer.code_store),
-        "indexed_repos": list(indexer.bm25_indices.keys())
+        "indexed_chunks": total_chunks,
+        "indexed_repos": repos,
+        "total_chunks_indexed": total_chunks,
+        "repositories": repos
     }

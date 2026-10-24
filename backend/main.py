@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 import uuid
 
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
 
@@ -54,9 +55,9 @@ class AnalyzeRequest(BaseModel):
     keep_clone: bool = False
     export_graphml: bool = False
 
-@app.get("/")
-def home():
-    return {"message": "Domino Backend Running"}
+@app.get("/api/health")
+def health():
+    return {"message": "Domino Backend Running", "status": "healthy"}
 
 @app.post("/ingest")
 def ingest_repository(request: RepositoryRequest):
@@ -131,3 +132,8 @@ def analyze_repository(request: AnalyzeRequest):
     finally:
         if not request.keep_clone and is_remote_url:
             service.cleanup(target_path)
+
+# Serve Modern Dashboard Frontend
+frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+if frontend_dir.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
