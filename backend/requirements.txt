@@ -26,3 +26,4 @@ loguru
 
 chromadb
 rank-bm25
+langchain-google-genai

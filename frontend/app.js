@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------
   // 3. Header Stats & Initial State
   // -------------------------------------------------------------
-  async function refreshStats() {
+  async function refreshStats(preferredRepo) {
     try {
       const res = await fetch('/api/self-rag/stats');
       if (!res.ok) return;
@@ -56,10 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const activeBadge = document.getElementById('active-repo-badge');
       const statsBadge = document.getElementById('indexed-stats-badge');
 
-        const repos = data.repositories || data.indexed_repos || [];
-        const primaryRepo = repos[0];
+      const repos = data.repositories || data.indexed_repos || [];
+      const primaryRepo = (preferredRepo && repos.includes(preferredRepo)) ? preferredRepo : repos[0];
+      if (primaryRepo) {
         state.activeRepo = primaryRepo;
-        
+
         const count = (data.chunk_count_per_repo && data.chunk_count_per_repo[primaryRepo]) || data.total_chunks_indexed || data.indexed_chunks || 0;
         if (activeBadge) activeBadge.textContent = `Active Repo: ${primaryRepo}`;
         if (statsBadge) statsBadge.textContent = `${count} Chunks Indexed`;
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const repoInputs = ['qa-repo-id', 'refactor-repo-id', 'index-repo-name', 'impact-repo'];
         repoInputs.forEach(id => {
           const el = document.getElementById(id);
-          if (el && !el.value) {
+          if (el && (preferredRepo || !el.value)) {
             el.value = primaryRepo;
           }
         });
@@ -511,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Refresh stats badge
-        await refreshStats();
+        await refreshStats(repoName);
         indexResultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
       } catch (err) {
