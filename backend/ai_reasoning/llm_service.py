@@ -7,6 +7,19 @@ except ImportError:
 from .models import AIExplanation
 from .prompts import get_reasoning_prompt
 
+def message_text(res) -> str:
+    """Newer Gemini integrations return content as a list of blocks; flatten to a string."""
+    content = getattr(res, "content", res)
+    if isinstance(content, str):
+        return content
+    parts = []
+    for block in content or []:
+        if isinstance(block, str):
+            parts.append(block)
+        elif isinstance(block, dict) and block.get("type", "text") == "text":
+            parts.append(block.get("text", ""))
+    return "".join(parts)
+
 class LLMService:
     def __init__(self):
         # We assume GOOGLE_API_KEY is in the environment

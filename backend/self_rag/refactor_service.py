@@ -13,7 +13,7 @@ from impact_analysis.service import ImpactAnalysisService
 from impact_analysis.models import ImpactAnalysisRequest
 from intelligence.test_recommender import TestRecommender
 from intelligence.metrics import GraphMetricsCache
-from ai_reasoning.llm_service import LLMService
+from ai_reasoning.llm_service import LLMService, message_text
 
 class SelfRAGRefactorService:
     """
@@ -87,7 +87,7 @@ class SelfRAGRefactorService:
         if self.llm_service and self.llm_service.llm:
             try:
                 res = self.llm_service.llm.invoke(prompt)
-                proposed_code = res.content.strip().replace("```python", "").replace("```", "").strip()
+                proposed_code = message_text(res).strip().replace("```python", "").replace("```", "").strip()
             except Exception:
                 pass
 

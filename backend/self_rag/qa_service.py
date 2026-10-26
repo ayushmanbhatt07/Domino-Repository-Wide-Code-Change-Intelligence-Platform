@@ -7,7 +7,7 @@ from .models import (
 )
 from .evaluators import SelfRAGEvaluator
 from retrieval.hybrid_retriever import HybridRetriever
-from ai_reasoning.llm_service import LLMService
+from ai_reasoning.llm_service import LLMService, message_text
 
 class SelfRAGQAService:
     """
@@ -39,7 +39,7 @@ class SelfRAGQAService:
             if self.llm_service and self.llm_service.llm:
                 try:
                     res = self.llm_service.llm.invoke(f"Answer this general software development question clearly:\n{query}")
-                    direct_ans = res.content
+                    direct_ans = message_text(res)
                 except Exception:
                     pass
             trace.utility_critique = self.evaluator.critique_utility(query, direct_ans)
@@ -103,7 +103,7 @@ class SelfRAGQAService:
         if self.llm_service and self.llm_service.llm:
             try:
                 res = self.llm_service.llm.invoke(prompt)
-                answer = res.content
+                answer = message_text(res)
             except Exception as e:
                 answer = f"Error invoking LLM: {e}\n\nFallback Analysis:\nFound relevant code in {', '.join(c['symbol'] for c in citations)}."
         else:
