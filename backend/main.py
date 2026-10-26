@@ -85,7 +85,7 @@ def analyze_repository(request: AnalyzeRequest):
         # If user passed a GitHub URL into /analyze directly, auto-clone it
         if is_remote_url:
             repo_name_val = request.repo_name if request.repo_name != "string" else None
-            ingest_res = service.ingest(request.path, repo_name_val)
+            ingest_res = service.ingest(request.path, repo_name_val, ref=request.commit_sha)
             target_path = ingest_res["path"]
             commit_sha = ingest_res["commit_sha"]
             if request.repo_name == "string":
@@ -136,4 +136,4 @@ def analyze_repository(request: AnalyzeRequest):
 # Serve Modern Dashboard Frontend
 frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
 if frontend_dir.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
+    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
