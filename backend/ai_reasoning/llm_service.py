@@ -4,6 +4,10 @@ try:
     from langchain_google_genai import ChatGoogleGenerativeAI
 except ImportError:
     ChatGoogleGenerativeAI = None
+try:
+    from langchain_groq import ChatGroq
+except ImportError:
+    ChatGroq = None
 from .models import AIExplanation
 from .prompts import get_reasoning_prompt
 
@@ -22,22 +26,32 @@ def message_text(res) -> str:
 
 class LLMService:
     def __init__(self):
-        # We assume GOOGLE_API_KEY is in the environment
+        # Groq is preferred when GROQ_API_KEY is set; otherwise fall back to Gemini via GOOGLE_API_KEY
+        self.groq_key = os.getenv("GROQ_API_KEY")
         self.api_key = os.getenv("GOOGLE_API_KEY")
-        self.model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-        
-        if self.api_key and ChatGoogleGenerativeAI:
+
+        if self.groq_key and ChatGroq:
+            self.model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+            self.llm = ChatGroq(
+                model=self.model_name,
+                temperature=0.2,
+                api_key=self.groq_key,
+                timeout=60.0,
+                max_retries=2
+            )
+        elif self.api_key and ChatGoogleGenerativeAI:
+            self.model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
             self.llm = ChatGoogleGenerativeAI(
                 model=self.model_name,
                 temperature=0.2,
                 google_api_key=self.api_key,
-                timeout=30.0,
+                timeout=60.0,
                 max_retries=2
             )
-            self.structured_llm = self.llm.with_structured_output(AIExplanation)
         else:
             self.llm = None
-            self.structured_llm = None
+
+        self.structured_llm = self.llm.with_structured_output(AIExplanation) if self.llm else None
 
     def generate_reasoning(self, context: str) -> Optional[AIExplanation]:
         if not self.structured_llm:
