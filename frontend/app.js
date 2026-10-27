@@ -370,26 +370,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Status Badges
         if (refactorStatusBadges) {
           refactorStatusBadges.innerHTML = `
-            <span class="badge ${data.ast_valid ? 'badge-emerald' : 'badge-rose'}">
-              ${data.ast_valid ? 'AST Valid' : 'Syntax Error'}
+            <span class="badge ${data.syntax_valid ? 'badge-emerald' : 'badge-rose'}">
+              ${data.syntax_valid ? 'AST Valid' : 'Syntax Error'}
             </span>
-            <span class="badge badge-purple">${data.impacted_callers?.length || 0} Callers Checked</span>
+            <span class="badge badge-purple">${data.impacted_callers_count || 0} Callers Checked</span>
           `;
         }
 
         // Verification Grid
         if (verifSyntaxVal) {
-          if (data.ast_valid) {
+          if (data.syntax_valid) {
             verifSyntaxVal.textContent = '✅ Valid Python AST';
             verifSyntaxVal.style.color = 'var(--accent-emerald)';
           } else {
-            verifSyntaxVal.textContent = `❌ ${data.ast_error || 'Syntax Validation Failed'}`;
+            verifSyntaxVal.textContent = `❌ ${data.syntax_error || 'Syntax Validation Failed'}`;
             verifSyntaxVal.style.color = 'var(--accent-rose)';
           }
         }
 
         if (verifCallersVal) {
-          const callersCount = data.impacted_callers?.length || 0;
+          const callersCount = data.impacted_callers_count || 0;
           verifCallersVal.textContent = `${callersCount} Dependent Callers`;
           verifCallersVal.style.color = callersCount > 0 ? 'var(--accent-amber)' : 'var(--accent-emerald)';
         }
@@ -402,14 +402,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Unified Diff
         if (diffFileTag) diffFileTag.textContent = targetEntity;
         if (refactorDiffBox) {
-          refactorDiffBox.innerHTML = renderDiffLines(data.unified_diff);
+          refactorDiffBox.innerHTML = renderDiffLines(data.diff);
         }
 
         // Cascading caller updates if any
         if (callerDiffsSection && callerDiffsList) {
-          if (data.impacted_callers && data.impacted_callers.length > 0) {
+          const callerNames = Object.keys(data.caller_diffs || {});
+          if (callerNames.length > 0) {
             callerDiffsSection.style.display = 'block';
-            callerDiffsList.innerHTML = data.impacted_callers.map(caller => `
+            callerDiffsList.innerHTML = callerNames.map(caller => `
               <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 8px;">
                 <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600;">${caller}</span>
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Verified for signature and call-site compatibility.</p>
@@ -577,12 +578,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (impactResultsContainer) impactResultsContainer.style.display = 'block';
 
         const summary = data.summary || {};
-        const totalImpacted = (summary.functions || 0) + (summary.files || 0) + (summary.routes || 0);
+        const totalImpacted = (summary.impacted_functions || 0) + (summary.impacted_files || 0) + (summary.impacted_routes || 0);
 
         // Determine Risk Score
         let riskColor = 'badge-emerald';
         let riskLabel = 'LOW RISK';
-        if (totalImpacted > 10 || (summary.routes || 0) > 0) {
+        if (totalImpacted > 10 || (summary.impacted_routes || 0) > 0) {
           riskColor = 'badge-rose';
           riskLabel = 'HIGH RISK (Affects External Routes/APIs)';
         } else if (totalImpacted > 3) {
@@ -600,19 +601,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="verification-grid" style="margin-top: 16px;">
               <div class="verif-card">
                 <span class="verif-title">Impacted Functions</span>
-                <span class="verif-value" style="color: var(--accent-cyan);">${summary.functions || 0}</span>
+                <span class="verif-value" style="color: var(--accent-cyan);">${summary.impacted_functions || 0}</span>
               </div>
               <div class="verif-card">
                 <span class="verif-title">Impacted Files</span>
-                <span class="verif-value" style="color: var(--accent-indigo);">${summary.files || 0}</span>
+                <span class="verif-value" style="color: var(--accent-indigo);">${summary.impacted_files || 0}</span>
               </div>
               <div class="verif-card">
                 <span class="verif-title">API Routes at Risk</span>
-                <span class="verif-value" style="color: var(--accent-rose);">${summary.routes || 0}</span>
+                <span class="verif-value" style="color: var(--accent-rose);">${summary.impacted_routes || 0}</span>
               </div>
               <div class="verif-card">
                 <span class="verif-title">Test Suites Triggered</span>
-                <span class="verif-value" style="color: var(--accent-emerald);">${summary.tests || 0}</span>
+                <span class="verif-value" style="color: var(--accent-emerald);">${summary.impacted_tests || 0}</span>
               </div>
             </div>
             
