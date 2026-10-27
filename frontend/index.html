@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domino | Self-RAG Codebase QA & Refactoring Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="logo-badge">D</div>
+        <div class="brand-text">
+          <h1>DOMINO <span class="tag">SELF-RAG</span></h1>
+          <p class="subtitle">Repository-Wide Code Change Intelligence & Self-Reflective AI Assistant</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <div class="status-indicator">
+          <span class="status-dot pulse"></span>
+          <span id="active-repo-badge">Active Repo: None</span>
+        </div>
+        <div class="stats-counter" id="indexed-stats-badge">
+          <span>0 Chunks Indexed</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="app-nav">
+      <button class="nav-tab active" data-tab="tab-qa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Self-RAG Codebase QA
+      </button>
+      <button class="nav-tab" data-tab="tab-refactor">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Safe Refactoring Assistant
+      </button>
+      <button class="nav-tab" data-tab="tab-index">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Ingest & Index Repository
+      </button>
+      <button class="nav-tab" data-tab="tab-impact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Impact & Risk Radar
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+
+      <!-- TAB 1: Codebase QA (Default) -->
+      <section id="tab-qa" class="tab-panel active">
+        <div class="panel-layout">
+          <div class="panel-card query-card">
+            <div class="card-header">
+              <h2>Ask Anything About The Codebase</h2>
+              <span class="badge badge-purple">Adaptive Retrieval Loop</span>
+            </div>
+            <p class="description">
+              Powered by Self-RAG. The model decides if retrieval is necessary, critiques retrieved code for relevance, and cross-checks every answer to prevent hallucinations.
+            </p>
+            <div class="form-group">
+              <label for="qa-repo-id">Repository ID:</label>
+              <input type="text" id="qa-repo-id" class="input-text" value="bank_analyzer" placeholder="e.g. bank_analyzer">
+            </div>
+            <div class="form-group">
+              <label for="qa-query">Developer Query:</label>
+              <textarea id="qa-query" class="input-textarea" rows="3" placeholder="e.g. Where is anomaly detection or telecom pattern analysis implemented?"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="qa-topk">Top-K Snippets:</label>
+                <select id="qa-topk" class="input-select">
+                  <option value="3">3 snippets</option>
+                  <option value="4" selected>4 snippets</option>
+                  <option value="6">6 snippets</option>
+                </select>
+              </div>
+              <div class="form-group half checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="qa-reflection" checked>
+                  <span>Enable Self-RAG Reflection Loops</span>
+                </label>
+              </div>
+            </div>
+            <div class="action-row">
+              <button id="qa-submit-btn" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Ask Self-RAG
+              </button>
+              <div class="preset-chips">
+                <span class="chip-label">Suggestions:</span>
+                <button class="chip" data-q="Where is anomaly detection or telecom pattern analysis implemented?">Anomaly & Telecom Logic</button>
+                <button class="chip" data-q="What are the main components of this repository and how does the analyzer work?">Architecture Overview</button>
+                <button class="chip" data-q="How are PDF files and bank statements parsed in this codebase?">PDF Parsing Flow</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- QA Results Display -->
+          <div id="qa-results-container" class="panel-card results-card" style="display: none;">
+            <div class="card-header">
+              <h2>Assistant Response & Citations</h2>
+              <div class="reflection-pills" id="qa-reflection-pills"></div>
+            </div>
+
+            <!-- Self-RAG Audit Box -->
+            <div class="audit-banner" id="qa-audit-banner">
+              <div class="audit-step" id="audit-retrieve">
+                <span class="step-icon">🎯</span>
+                <div class="step-content">
+                  <strong>Adaptive Gate [Retrieve]</strong>
+                  <span id="audit-retrieve-text">Deciding...</span>
+                </div>
+              </div>
+              <div class="audit-step" id="audit-rel">
+                <span class="step-icon">🔍</span>
+                <div class="step-content">
+                  <strong>Relevance [IsRel]</strong>
+                  <span id="audit-rel-text">Evaluating...</span>
+                </div>
+              </div>
+              <div class="audit-step" id="audit-sup">
+                <span class="step-icon">🛡️</span>
+                <div class="step-content">
+                  <strong>Grounding [IsSup]</strong>
+                  <span id="audit-sup-text">Verifying zero hallucinations...</span>
+                </div>
+              </div>
+              <div class="audit-step" id="audit-use">
+                <span class="step-icon">⭐</span>
+                <div class="step-content">
+                  <strong>Utility [IsUse]</strong>
+                  <span id="audit-use-text">Scoring...</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="response-body markdown-content" id="qa-answer-body"></div>
+
+            <div class="citations-section">
+              <h3>Grounded Repository Citations</h3>
+              <div class="citations-grid" id="qa-citations-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Refactoring Assistant -->
+      <section id="tab-refactor" class="tab-panel">
+        <div class="panel-layout">
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Closed-Loop Safe Refactoring</h2>
+              <span class="badge badge-emerald">Tree-sitter AST + Ripple Impact Verification</span>
+            </div>
+            <p class="description">
+              Request code changes safely. The assistant generates diffs, parses the result with Tree-sitter to guarantee valid syntax, and traverses Domino's dependency graph to find all downstream callers that need updates.
+            </p>
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="refactor-repo-id">Repository ID:</label>
+                <input type="text" id="refactor-repo-id" class="input-text" value="bank_analyzer">
+              </div>
+              <div class="form-group half">
+                <label for="refactor-target">Target Entity (File::Function):</label>
+                <input type="text" id="refactor-target" class="input-text" value="pdf-parser/pdf_parser.py::_detect_provider_from_text" placeholder="e.g. pdf-parser/pdf_parser.py::_detect_provider_from_text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="refactor-instructions">Refactoring Instructions:</label>
+              <textarea id="refactor-instructions" class="input-textarea" rows="3" placeholder="e.g. Add comprehensive type annotations, docstring, and error handling for empty text inputs"></textarea>
+            </div>
+            <div class="action-row">
+              <button id="refactor-submit-btn" class="btn btn-emerald">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Generate Safe Refactor
+              </button>
+            </div>
+          </div>
+
+          <!-- Refactor Output Container -->
+          <div id="refactor-results-container" class="panel-card results-card" style="display: none;">
+            <div class="card-header">
+              <h2>Refactoring Diff & Ripple Impact</h2>
+              <div id="refactor-status-badges" class="badges-row"></div>
+            </div>
+
+            <!-- Verification Pills -->
+            <div class="verification-grid">
+              <div class="verif-card" id="verif-syntax-card">
+                <span class="verif-title">Tree-sitter Syntax Validation</span>
+                <span class="verif-value" id="verif-syntax-val">Checking...</span>
+              </div>
+              <div class="verif-card" id="verif-impact-card">
+                <span class="verif-title">Downstream Callers Impacted</span>
+                <span class="verif-value" id="verif-callers-val">0</span>
+              </div>
+              <div class="verif-card" id="verif-tests-card">
+                <span class="verif-title">Recommended Tests</span>
+                <span class="verif-value" id="verif-tests-val">None</span>
+              </div>
+            </div>
+
+            <div class="diff-viewer-wrapper">
+              <div class="diff-header">
+                <span>Unified Git Diff</span>
+                <span id="diff-file-tag">target.py</span>
+              </div>
+              <pre class="diff-content" id="refactor-diff-box"></pre>
+            </div>
+
+            <div id="caller-diffs-section" class="caller-diffs-section" style="display: none;">
+              <h3>Cascading Caller Updates</h3>
+              <div id="caller-diffs-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Ingest & Index -->
+      <section id="tab-index" class="tab-panel">
+        <div class="panel-layout narrow">
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Ingest & Index Repository</h2>
+              <span class="badge badge-cyan">AST + ChromaDB + BM25</span>
+            </div>
+            <p class="description">
+              Provide any GitHub URL or local path. The engine automatically clones, extracts functions and classes using Tree-sitter, builds the dependency graph, and constructs the vector and BM25 index.
+            </p>
+            <div class="form-group">
+              <label for="index-path">Repository URL or Local Path:</label>
+              <input type="text" id="index-path" class="input-text" value="https://github.com/ayushmanbhatt07/AI-Bank-Transaction-and-Telecom-Analyzer" placeholder="https://github.com/user/repo or c:/path/to/project">
+            </div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="index-repo-name">Repository Name:</label>
+                <input type="text" id="index-repo-name" class="input-text" value="bank_analyzer" placeholder="e.g. bank_analyzer">
+              </div>
+              <div class="form-group half">
+                <label for="index-commit">Branch / Commit:</label>
+                <input type="text" id="index-commit" class="input-text" value="main">
+              </div>
+            </div>
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="index-keep-clone" checked>
+                <span>Keep clone on disk (recommended for offline inspections)</span>
+              </label>
+            </div>
+            <div class="action-row">
+              <button id="index-submit-btn" class="btn btn-cyan">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Ingest & Index Repository
+              </button>
+            </div>
+          </div>
+
+          <div id="index-results-container" class="panel-card results-card" style="display: none;">
+            <div class="card-header">
+              <h2>Indexing Summary</h2>
+              <span class="badge badge-emerald" id="index-status-pill">Success</span>
+            </div>
+            <div class="stats-overview" id="index-stats-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: Impact & Risk Radar -->
+      <section id="tab-impact" class="tab-panel">
+        <div class="panel-layout narrow">
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Change Impact & Risk Scoring</h2>
+              <span class="badge badge-amber">Domino Stage 5 & 6</span>
+            </div>
+            <p class="description">
+              Perform deep graph reachability analysis to see what components will break if a specific function, class, or route is modified.
+            </p>
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="impact-repo">Repository:</label>
+                <input type="text" id="impact-repo" class="input-text" value="bank_analyzer">
+              </div>
+              <div class="form-group half">
+                <label for="impact-function">Function Name:</label>
+                <input type="text" id="impact-function" class="input-text" value="_detect_provider_from_text" placeholder="e.g. _detect_provider_from_text">
+              </div>
+            </div>
+            <div class="action-row">
+              <button id="impact-submit-btn" class="btn btn-amber">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Calculate Change Impact & Risk
+              </button>
+            </div>
+          </div>
+
+          <div id="impact-results-container" class="panel-card results-card" style="display: none;">
+            <div class="card-header">
+              <h2>Impact Trace & Risk Score</h2>
+              <div id="impact-risk-badge" class="badge"></div>
+            </div>
+            <div id="impact-details-content"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modal for viewing full source code of a citation -->
+    <div id="code-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 id="modal-title">Source Viewer</h3>
+          <button id="modal-close-btn" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <pre><code id="modal-code-content" class="language-python"></code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

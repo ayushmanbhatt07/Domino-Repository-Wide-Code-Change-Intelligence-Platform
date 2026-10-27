@@ -33,18 +33,26 @@ class RepositoryIngestionService:
         return True
 
     def repository_exists(self, repo_url: str) -> bool:
-        # Just head request to see if it's there
-        # For ".git" suffix remove it for web request
         clean_url = repo_url
         if clean_url.endswith(".git"):
             clean_url = clean_url[:-4]
         try:
             response = requests.head(clean_url, allow_redirects=True, timeout=5)
-            return response.status_code == 200
-        except:
+            if response.status_code == 200:
+                return True
+        except Exception:
+            pass
+
+        # Fallback to git ls-remote (supports private/credential-authenticated repos)
+        try:
+            from git import cmd
+            g = cmd.Git()
+            output = g.ls_remote(repo_url)
+            return bool(output)
+        except Exception:
             return False
 
-    def ingest(self, repo_url: str, custom_repo_name: str = None):
+    def ingest(self, repo_url: str, custom_repo_name: str = None, ref: str = None):
         if not self.validate_url(repo_url):
             raise ValueError("Invalid GitHub Repository URL.")
 
@@ -65,7 +73,7 @@ class RepositoryIngestionService:
         clone_path = self.workspace / folder_name
 
         try:
-            repo = Repo.clone_from(repo_url, clone_path, depth=1)
+            repo = self._clone(repo_url, clone_path, ref)
             commit_sha = repo.head.commit.hexsha
             repo.close()  # Release file handles to prevent lock on Windows
             
@@ -77,6 +85,25 @@ class RepositoryIngestionService:
         except GitCommandError as e:
             raise RuntimeError(f"Git Clone Failed : {e}")
             
+    def _clone(self, repo_url: str, clone_path, ref: str = None):
+        """Clone the default branch, or the given branch/tag/commit when ref is set."""
+        ref = (ref or "").strip()
+        if not ref or ref == "unknown":
+            return Repo.clone_from(repo_url, clone_path, depth=1)
+        try:
+            return Repo.clone_from(repo_url, clone_path, depth=1, branch=ref)
+        except GitCommandError:
+            # ref may be a commit SHA (or a default branch name that doesn't exist)
+            self.cleanup(str(clone_path))
+            repo = Repo.clone_from(repo_url, clone_path)
+            try:
+                repo.git.checkout(ref)
+            except GitCommandError:
+                repo.close()
+                self.cleanup(str(clone_path))
+                raise RuntimeError(f"Branch or commit '{ref}' not found in repository.")
+            return repo
+
     def cleanup(self, path: str):
         if path and os.path.exists(path) and "workspace" in path:
             import stat

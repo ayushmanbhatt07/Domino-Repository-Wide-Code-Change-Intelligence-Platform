@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from tree_sitter_language_pack import get_parser
+from parser_utils import get_python_parser
 
 LANGUAGES = {
     ".py": "python",
@@ -155,6 +155,7 @@ class PythonVisitor:
                     mname = self.find_first(child, {"function_definition"}).child_by_field_name("name")
                     if mname: methods.append(get_text(mname, self.source))
                     
+            class_raw = get_text(node, self.source)
             self.classes.append({
                 "name": name,
                 "qualified_name": qual_name,
@@ -163,6 +164,7 @@ class PythonVisitor:
                 "methods": methods,
                 "start_line": start_line,
                 "end_line": end_line,
+                "code_content": class_raw,
                 "is_test": is_test
             })
             
@@ -195,6 +197,9 @@ class PythonVisitor:
                 
             owner_class = self.context_stack[-2] if len(self.context_stack) > 1 else None
             
+            fn_start_byte = decorators[0].start_byte if (decorators and decorators[0].start_byte < node.start_byte) else node.start_byte
+            fn_raw = self.source[fn_start_byte:node.end_byte].decode(errors="ignore")
+
             fn_dict = {
                 "name": name,
                 "qualified_name": qual_name,
@@ -203,6 +208,7 @@ class PythonVisitor:
                 "decorators": dec_texts,
                 "start_line": start_line,
                 "end_line": end_line,
+                "code_content": fn_raw,
                 "calls": calls,
                 "references": refs,
                 "depends": depends,
@@ -329,7 +335,7 @@ class RepositoryAnalyzer:
         
         try:
             source = file_path.read_bytes()
-            tree = get_parser(language).parse(source)
+            tree = get_python_parser().parse(source)
             root = tree.root_node
             
             visitor = PythonVisitor(source, relative)

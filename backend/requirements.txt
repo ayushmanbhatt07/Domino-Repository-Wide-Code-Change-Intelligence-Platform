@@ -8,6 +8,7 @@ gitpython
 
 tree-sitter
 tree-sitter-language-pack
+tree-sitter-python
 
 neo4j
 
@@ -22,3 +23,7 @@ requests
 rich
 
 loguru
+
+chromadb
+rank-bm25
+langchain-google-genai
